@@ -168,6 +168,7 @@ __webpack_require__(/*! ./main */ "./resources/js/main.js"); //
 
 document.addEventListener('DOMContentLoaded', function () {
   M.Sidenav.init(document.querySelectorAll('.sidenav'), {});
+  M.Tabs.init(document.querySelectorAll('.tabs'), {});
 });
 
 /***/ }),
