@@ -1,76 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
-.content {
-  margin-bottom: 5rem;
-}
-
-.header__h1 {
-  margin: 0;
-}
-
-.todo-add__btn {
-  text-align: center;
-  padding: 2rem;
-}
-
-.todo {
-  display: flex;
-  padding: 2rem;
-}
-
-.todo-content__title,
-.todo-content__body,
-.todo-content__limit {
-  display: flex;
-  margin-bottom: 1rem;
-}
-
-.todo-content__icon {
-  margin-right: 2rem;
-}
-
-.breadcrumbs {
-  padding: 2rem;
-}
-
-.breadcrumbs__item:not(:last-child):after {
-  font-family: "Material Icons";
-  content: "\E5CC";
-  vertical-align: middle;
-  margin-left: 0.5rem;
-}
-
-.footer {
-  display: flex;
-  justify-content: center;
-}
-
-.footer__wrap {
-  display: flex;
-  align-items: center;
-}
-
-.footer__copyright {
-  font-size: 1.2rem;
-  margin-right: 0.5rem;
-  height: 3rem;
-}
-
-.footer__copyright-link {
-  color: #FFF;
-}
-
-.footer__sns-list {
-  display: flex;
-  height: 3rem;
-}
-
-.footer__sns-icon {
-  color: #FFF;
-  font-size: 1.5rem;
-  margin-right: 0.5rem;
-}
-
 .materialize-red {
   background-color: #e51c23 !important;
 }
@@ -9338,5 +9267,80 @@ input[type=range]::-ms-thumb {
     text-align: center;
     margin-top: 1.2rem;
   }
+}
+
+.content {
+  margin-bottom: 5rem;
+}
+
+.header__h1 {
+  margin: 0;
+}
+
+.todo-add__btn {
+  text-align: center;
+  padding: 2rem;
+}
+
+.todo {
+  display: flex;
+  padding: 2rem;
+}
+
+.todo-content__title,
+.todo-content__body,
+.todo-content__limit {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.todo-content__icon {
+  margin-right: 2rem;
+}
+
+.breadcrumbs {
+  padding: 2rem;
+}
+
+.breadcrumbs__item:not(:last-child):after {
+  font-family: "Material Icons";
+  content: "\E5CC";
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.footer__wrap {
+  display: flex;
+  align-items: center;
+}
+
+.footer__copyright {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+  height: 3rem;
+}
+
+.footer__copyright-link {
+  color: #FFF;
+}
+
+.footer__sns-list {
+  display: flex;
+  height: 3rem;
+}
+
+.footer__sns-icon {
+  color: #FFF;
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.card-wrapper {
+  padding: 2rem;
 }
 

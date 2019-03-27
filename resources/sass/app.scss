@@ -1,12 +1,15 @@
-
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// materialize
+@import '~materialize-css/sass/materialize';
 
 // Variables
 @import 'variables';
 
-// Variables
+// common
 @import 'common';
 
-// materialize
-@import '~materialize-css/sass/materialize';
+// page
+@import 'ddg';
+@import 'top';
