@@ -3,10 +3,12 @@
 <head>
 	@yield('head')
 </head>
-<body id="app">
-@yield('header')
-@yield('content')
-@yield('footer')
+<body>
+<div id="app">
+	@yield('header')
+	@yield('content')
+	@yield('footer')
+</div>
 <script type="text/javascript" src="{{ mix('js/app.js') }}" defer></script>
 </body>
 </html>

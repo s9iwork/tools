@@ -9340,6 +9340,17 @@ input[type=range]::-ms-thumb {
   margin-right: 0.5rem;
 }
 
+.tab-container {
+  margin-top: 1rem;
+}
+
+.content__h2 {
+  font-size: 1.5rem;
+  border-left: solid 5px #ee6e73;
+  padding-left: 5px;
+  color: #ee6e73;
+}
+
 .card-wrapper {
   padding: 2rem;
 }
