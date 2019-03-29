@@ -10,7 +10,7 @@
 					<div class="card">
 						<div class="card-image">
 							<img src="//placehold.jp/150x150.png">
-							<span class="card-title">ダミーデータ作成ツール</span>
+							<span class="card-title">ダミーデータ作る君</span>
 						</div>
 						<div class="card-content">
 							<p>名前や住所などのダミーデータを生成するツールです。</p>
