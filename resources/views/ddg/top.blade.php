@@ -3,9 +3,7 @@
 @section('title', 'ダミーデータ作る君')
 
 @section('content')
-	<main class="container">
-		<ddg-top></ddg-top>
-	</main>
+	<ddg-top></ddg-top>
 @endsection
 
 @include('layouts.head')
