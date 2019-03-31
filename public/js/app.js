@@ -400,6 +400,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -898,522 +900,524 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("form", { attrs: { action: "" } }, [
-      _c("div", { staticClass: "row tab-container" }, [
-        _c("div", { staticClass: "col s12" }, [
-          _c("ul", { staticClass: "tabs z-depth-1" }, [
-            _c("li", { staticClass: "tab col s3" }, [
-              _c("a", { attrs: { href: "#category-1" } }, [
-                _vm._v("個人情報系")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "tab col s3" }, [
-              _c("a", { attrs: { href: "#category-2" } }, [_vm._v("Web系")])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "tab col s3" }, [
-              _c("a", { attrs: { href: "#category-3" } }, [_vm._v("時間系")])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "tab col s3" }, [
-              _c("a", { attrs: { href: "#category-99" } }, [_vm._v("未分類")])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { attrs: { id: "category-1" } }, [
-          _c("h2", { staticClass: "content__h2" }, [_vm._v("個人情報系")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col s12 m6" }, [
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("国")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("郵便番号")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("住所")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("名前")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("電話番号")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("メールアドレス（存在しない）")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("会社名")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("銀行口座")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("クレジットカード種類")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("クレジットカード番号")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("クレジットカード有効期限")])
+    return _c("main", { staticClass: "container" }, [
+      _c("form", { attrs: { action: "" } }, [
+        _c("div", { staticClass: "row tab-container" }, [
+          _c("div", { staticClass: "col s12" }, [
+            _c("ul", { staticClass: "tabs z-depth-1" }, [
+              _c("li", { staticClass: "tab col s3" }, [
+                _c("a", { attrs: { href: "#category-1" } }, [
+                  _vm._v("個人情報系")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "tab col s3" }, [
+                _c("a", { attrs: { href: "#category-2" } }, [_vm._v("Web系")])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "tab col s3" }, [
+                _c("a", { attrs: { href: "#category-3" } }, [_vm._v("時間系")])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "tab col s3" }, [
+                _c("a", { attrs: { href: "#category-99" } }, [_vm._v("未分類")])
               ])
             ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col s12 m6" }, [
-            _vm._v("\n                サンプル\n            ")
           ])
         ]),
         _vm._v(" "),
-        _c("div", { attrs: { id: "category-2" } }, [
-          _c("h2", { staticClass: "content__h2" }, [_vm._v("Web系")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col s12 m6" }, [
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("ID")])
-              ])
-            ]),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { attrs: { id: "category-1" } }, [
+            _c("h2", { staticClass: "content__h2" }, [_vm._v("個人情報系")]),
             _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("パスワード")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("ドメイン名")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("トップレベルドメイン（.comなど）")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("URL")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("IPV4アドレス")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("IPV6アドレス")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("UserAgent")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("UserAgent(Chrome)")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("UserAgent(Safari)")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("UserAgent(Opera)")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("UserAgent(IE)")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("UserAgent(IE)")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("MIMEタイプ")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("拡張子")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("16進数カラーコード")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("RGBカラー")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("カラー名")])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col s12 m6" }, [
             _c("div", { staticClass: "col s12 m6" }, [
-              _vm._v("\n                    サンプル\n                ")
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("国")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("郵便番号")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("住所")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("名前")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("電話番号")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("メールアドレス（存在しない）")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("会社名")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("銀行口座")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("クレジットカード種類")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("クレジットカード番号")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("クレジットカード有効期限")])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col s12 m6" }, [
+              _vm._v("\n\t\t\t\t\tサンプル\n\t\t\t\t")
             ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { attrs: { id: "category-3" } }, [
-          _c("h2", { staticClass: "content__h2" }, [_vm._v("日付系")]),
+          ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col s12 m6" }, [
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("タイムゾーン")])
+          _c("div", { attrs: { id: "category-2" } }, [
+            _c("h2", { staticClass: "content__h2" }, [_vm._v("Web系")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col s12 m6" }, [
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("ID")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("パスワード")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("ドメイン名")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("トップレベルドメイン（.comなど）")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("URL")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("IPV4アドレス")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("IPV6アドレス")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("UserAgent")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("UserAgent(Chrome)")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("UserAgent(Safari)")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("UserAgent(Opera)")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("UserAgent(IE)")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("UserAgent(IE)")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("MIMEタイプ")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("拡張子")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("16進数カラーコード")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("RGBカラー")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("カラー名")])
+                ])
               ])
             ]),
             _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("日付（今年）")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("日付（今月）")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("日付")])
+            _c("div", { staticClass: "col s12 m6" }, [
+              _c("div", { staticClass: "col s12 m6" }, [
+                _vm._v("\n\t\t\t\t\t\tサンプル\n\t\t\t\t\t")
               ])
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col s12 m6" }, [
-            _vm._v("\n                サンプル\n            ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { attrs: { id: "category-99" } }, [
-          _c("h2", { staticClass: "content__h2" }, [_vm._v("未分類")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col s12 m6" }, [
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("フリーテキスト")])
+          _c("div", { attrs: { id: "category-3" } }, [
+            _c("h2", { staticClass: "content__h2" }, [_vm._v("日付系")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col s12 m6" }, [
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("タイムゾーン")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("日付（今年）")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("日付（今月）")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("日付")])
+                ])
               ])
             ]),
             _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("国コード")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("国コード(3桁)")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("通貨コード")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("緯度")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("経度")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("ISBN-13(書籍コード)")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("label", [
-                _c("input", {
-                  staticClass: "with-gap",
-                  attrs: { name: "type", type: "radio" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("ISBN-10")])
-              ])
+            _c("div", { staticClass: "col s12 m6" }, [
+              _vm._v("\n\t\t\t\t\tサンプル\n\t\t\t\t")
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col s12 m6" }, [
-            _vm._v("\n                サンプル\n            ")
+          _c("div", { attrs: { id: "category-99" } }, [
+            _c("h2", { staticClass: "content__h2" }, [_vm._v("未分類")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col s12 m6" }, [
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("フリーテキスト")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("国コード")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("国コード(3桁)")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("通貨コード")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("緯度")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("経度")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("ISBN-13(書籍コード)")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "with-gap",
+                    attrs: { name: "type", type: "radio" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("ISBN-10")])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col s12 m6" }, [
+              _vm._v("\n\t\t\t\t\tサンプル\n\t\t\t\t")
+            ])
           ])
         ])
       ])
