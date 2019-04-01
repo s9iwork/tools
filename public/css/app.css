@@ -9344,7 +9344,8 @@ input[type=range]::-ms-thumb {
   margin-top: 1rem;
 }
 
-.content__h2 {
+.content__h2,
+.content__title {
   font-size: 1.5rem;
   border-left: solid 5px #ee6e73;
   padding-left: 5px;
