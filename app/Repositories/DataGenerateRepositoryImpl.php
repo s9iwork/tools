@@ -3,12 +3,15 @@
 namespace App\Repositories;
 
 /**
- * Class DataGenerateRepositoryImpl
+ * Class DataGenerateRepository
  * @package App\Repositories
  */
 class DataGenerateRepositoryImpl implements DataGenerateRepository
 {
-	public function create() :?array
+	/**
+	 * DataGenerateRepositoryImpl constructor.
+	 */
+	public function __construct()
 	{
 
 	}

@@ -11,8 +11,15 @@ use App\Services\DataGenerateService;
  */
 class DataGenerateController extends Controller
 {
-	protected $data_generate_service = null;
+	/**
+	 * @var DataGenerateService
+	 */
+	protected $data_generate_service;
 
+	/**
+	 * DataGenerateController constructor.
+	 * @param DataGenerateService $data_generate_service
+	 */
 	public function __construct(DataGenerateService $data_generate_service)
 	{
 		$this->data_generate_service = $data_generate_service;
@@ -40,7 +47,6 @@ class DataGenerateController extends Controller
 		$this->validate($request, [
 			'type' => 'required|integer|min:1|max:4'
 		]);
-
 		$response = $this->data_generate_service->create();
 
 		return [

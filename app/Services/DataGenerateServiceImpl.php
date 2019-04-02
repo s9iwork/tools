@@ -11,19 +11,19 @@ use App\Repositories\DataGenerateRepository;
  */
 class DataGenerateServiceImpl implements DataGenerateService
 {
-//	/**
-//	 * @var DataGenerateRepository
-//	 */
-//	protected $data_generate_repository = null;
-//
-//	/**
-//	 * DataGenerateServiceImpl constructor.
-//	 * @param DataGenerateRepository $data_generate_repository
-//	 */
-//	public function __construct(DataGenerateRepository $data_generate_repository)
-//	{
-//		$this->$data_generate_repository = $data_generate_repository;
-//	}
+	/**
+	 * @var DataGenerateRepository
+	 */
+	protected $data_generate_repository;
+
+	/**
+	 * DataGenerateService constructor.
+	 * @param DataGenerateRepository $data_generate_repository
+	 */
+	public function __construct(DataGenerateRepository $data_generate_repository)
+	{
+		$this->data_generate_repository = $data_generate_repository;
+	}
 
 	/**
 	 * @return array

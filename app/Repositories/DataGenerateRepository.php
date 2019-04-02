@@ -8,5 +8,4 @@ namespace App\Repositories;
  */
 interface DataGenerateRepository
 {
-	public function create();
 }
