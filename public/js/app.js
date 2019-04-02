@@ -2083,7 +2083,7 @@ __webpack_require__.r(__webpack_exports__);
         1: '1',
         2: '2',
         3: '3',
-        4: '4',
+        4: '小林 修平',
         5: '5',
         6: '6',
         7: '7',
@@ -58281,8 +58281,8 @@ var $jscomp$this = this;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /vagrant/webapps/php/laravel/tools/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /vagrant/webapps/php/laravel/tools/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\user\Documents\local\tools\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\user\Documents\local\tools\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
