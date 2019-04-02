@@ -3,14 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Faker\Factory;
+use App\Services\DataGenerateService;
 
 /**
- * Class DdgController
+ * Class DataGenerateController
  * @package App\Http\Controllers
  */
-class DdgController extends Controller
+class DataGenerateController extends Controller
 {
+	protected $data_generate_service = null;
+
+	public function __construct(DataGenerateService $data_generate_service)
+	{
+		$this->data_generate_service = $data_generate_service;
+	}
+
 	/**
 	 * トップページを表示する
 	 *
@@ -34,12 +41,7 @@ class DdgController extends Controller
 			'type' => 'required|integer|min:1|max:4'
 		]);
 
-		$faker = Factory::create('ja_JP');
-		$response = [];
-		for($i=0; $i < 10; $i++)
-		{
-			$response[] = $faker->name;
-		}
+		$response = $this->data_generate_service->create();
 
 		return [
 			'items' => $response
