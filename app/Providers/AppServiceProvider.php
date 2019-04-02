@@ -31,7 +31,9 @@ class AppServiceProvider extends ServiceProvider
     {
 		$this->app->bind(
 			DataGenerateService::class,
-			DataGenerateServiceImpl::class,
+			DataGenerateServiceImpl::class
+		);
+		$this->app->bind(
 			DataGenerateRepository::class,
 			DataGenerateRepositoryImpl::class
 		);
