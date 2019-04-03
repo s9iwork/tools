@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\DataGenerateService;
+use App\Services\DataGenerateServiceInterface;
 
 /**
  * Class DataGenerateController
@@ -12,7 +12,7 @@ use App\Services\DataGenerateService;
 class DataGenerateController extends Controller
 {
 	/**
-	 * @var DataGenerateService
+	 * @var DataGenerateServiceInterface
 	 */
 	protected $data_generate_service;
 
@@ -20,7 +20,7 @@ class DataGenerateController extends Controller
 	 * DataGenerateController constructor.
 	 * @param DataGenerateService $data_generate_service
 	 */
-	public function __construct(DataGenerateService $data_generate_service)
+	public function __construct(DataGenerateServiceInterface $data_generate_service)
 	{
 		$this->data_generate_service = $data_generate_service;
 	}

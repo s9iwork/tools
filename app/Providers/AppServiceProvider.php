@@ -4,9 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-use App\Services\DataGenerateService;
+use App\Services\DataGenerateServiceInterface;
 use App\Services\DataGenerateServiceImpl;
-use App\Repositories\DataGenerateRepository;
+use App\Repositories\DataGenerateRepositoryInterface;
 use App\Repositories\DataGenerateRepositoryImpl;
 
 
@@ -30,11 +30,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 		$this->app->bind(
-			DataGenerateService::class,
+			DataGenerateServiceInterface::class,
 			DataGenerateServiceImpl::class
 		);
 		$this->app->bind(
-			DataGenerateRepository::class,
+			DataGenerateRepositoryInterface::class,
 			DataGenerateRepositoryImpl::class
 		);
     }

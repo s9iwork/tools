@@ -3,24 +3,24 @@
 namespace App\Services;
 
 use Faker\Factory;
-use App\Repositories\DataGenerateRepository;
+use App\Repositories\DataGenerateRepositoryInterface;
 
 /**
  * Class DataGenerateServiceImpl
  * @package App\Services
  */
-class DataGenerateServiceImpl implements DataGenerateService
+class DataGenerateServiceImpl implements DataGenerateServiceInterface
 {
 	/**
-	 * @var DataGenerateRepository
+	 * @var DataGenerateRepositoryInterface
 	 */
 	protected $data_generate_repository;
 
 	/**
 	 * DataGenerateService constructor.
-	 * @param DataGenerateRepository $data_generate_repository
+	 * @param DataGenerateServiceInterface $data_generate_repository
 	 */
-	public function __construct(DataGenerateRepository $data_generate_repository)
+	public function __construct(DataGenerateRepositoryInterface $data_generate_repository)
 	{
 		$this->data_generate_repository = $data_generate_repository;
 	}

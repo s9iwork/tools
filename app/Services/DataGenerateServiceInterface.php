@@ -3,10 +3,10 @@
 namespace App\Services;
 
 /**
- * Interface DataGenerateService
+ * Interface DataGenerateServiceInterface
  * @package App\Services
  */
-interface DataGenerateService
+interface DataGenerateServiceInterface
 {
 	/**
 	 * @return array

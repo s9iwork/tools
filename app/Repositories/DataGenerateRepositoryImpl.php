@@ -6,7 +6,7 @@ namespace App\Repositories;
  * Class DataGenerateRepository
  * @package App\Repositories
  */
-class DataGenerateRepositoryImpl implements DataGenerateRepository
+class DataGenerateRepositoryImpl implements DataGenerateRepositoryInterface
 {
 	/**
 	 * DataGenerateRepositoryImpl constructor.
