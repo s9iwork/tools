@@ -45,9 +45,9 @@ class DataGenerateController extends Controller
 	{
 		// バリデーション
 		$this->validate($request, [
-			'type' => 'required|integer|min:1|max:4'
+			'type' => 'required|integer|min:1|max:40'
 		]);
-		$response = $this->data_generate_service->create();
+		$response = $this->data_generate_service->create($request->all());
 
 		return [
 			'items' => $response
