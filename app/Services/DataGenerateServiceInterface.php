@@ -9,7 +9,8 @@ namespace App\Services;
 interface DataGenerateServiceInterface
 {
 	/**
+	 * @param  array リクエストパラメータ
 	 * @return array
 	 */
-	public function create() :array;
+	public function create(array $params=[]) :array;
 }

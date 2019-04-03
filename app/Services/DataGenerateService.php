@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Faker\Factory;
 use App\Repositories\DataGenerateRepositoryInterface;
+use App\Constants\DatatypeConstant;
 
 /**
  * Class DataGenerateService
@@ -17,6 +18,52 @@ class DataGenerateService implements DataGenerateServiceInterface
 	protected $data_generate_repository;
 
 	/**
+	 * @var array データ種別とメンバ変数のマップ
+	 */
+	private const TYPE_VARIABLE_MAP = [
+		DatatypeConstant::COUNTRY_NAME => 'country',
+		DatatypeConstant::ZIP_CODE => 'postcode',
+		DatatypeConstant::ADDRESS => 'streetAddress',
+		DatatypeConstant::NAME => 'name',
+		DatatypeConstant::TEL => 'phoneNumber',
+		DatatypeConstant::EMAIL => 'safeEmail',
+		DatatypeConstant::COMPANY_NAME => 'company',
+		DatatypeConstant::BANK => 'bankAccountNumber',
+		DatatypeConstant::CREDIT_CARD_BRAND => 'creditCardType',
+		DatatypeConstant::CREDIT_CARD_NUMBER => 'creditCardNumber',
+		DatatypeConstant::CREDIT_CARD_LIMIT => 'creditCardExpirationDate',
+		DatatypeConstant::ID => 'userName',
+		DatatypeConstant::PASSWORD => 'password',
+		DatatypeConstant::DOMAIN => 'domainName',
+		DatatypeConstant::TOP_DOMAIN => 'tld',
+		DatatypeConstant::URL => 'url',
+		DatatypeConstant::IPV4 => 'IPv4',
+		DatatypeConstant::IPV6 => 'IPv6',
+		DatatypeConstant::USER_AGENT => 'userAgent',
+		DatatypeConstant::USER_AGENT_CHROME => 'chrome',
+		DatatypeConstant::USER_AGENT_SAFARI => 'Safari',
+		DatatypeConstant::USER_AGENT_OPERA => 'opera',
+		DatatypeConstant::USER_AGENT_IE => 'internetExplorer',
+		DatatypeConstant::MIME_TYPE => 'mimeType',
+		DatatypeConstant::EXTENSION => 'fileExtension',
+		DatatypeConstant::HEX_COLOR_CODE => 'hexColor',
+		DatatypeConstant::RGB_COLOR_CODE => 'rgbColor',
+		DatatypeConstant::COLOR_NAME => 'colorName',
+		DatatypeConstant::TIME_ZONE => 'timezone',
+		DatatypeConstant::DATE_CURRENT_YEAR => '',
+		DatatypeConstant::DATE_CURRENT_MONTH => '',
+		DatatypeConstant::DATE => '',
+		DatatypeConstant::TEXT => 'text',
+		DatatypeConstant::COUNTRY_CODE => 'countryCode',
+		DatatypeConstant::COUNTRY_CODE_3DIGIT => 'countryISOAlpha3',
+		DatatypeConstant::CURRENCY_CODE => 'currencyCode',
+		DatatypeConstant::LATITUDE => 'latitude',
+		DatatypeConstant::LONGITUDE => 'longitude',
+		DatatypeConstant::ISBN13 => 'isbn13',
+		DatatypeConstant::ISBN10 => 'isbn10'
+	];
+
+	/**
 	 * DataGenerateService constructor.
 	 * @param DataGenerateRepositoryInterface $data_generate_repository
 	 */
@@ -26,16 +73,17 @@ class DataGenerateService implements DataGenerateServiceInterface
 	}
 
 	/**
+	 * @param array $params リクエストパラメータ
 	 * @return array
 	 */
-	public function create() :array
+	public function create(array $params = []): array
 	{
 		$faker = Factory::create('ja_JP');
 
 		$response = [];
-		for($i=0; $i < 10; $i++)
-		{
-			$response[] = $faker->name;
+		for ($i = 0; $i < 10; $i++) {
+			$variable = self::TYPE_VARIABLE_MAP[$params['type']];
+			$response[] = $faker->$variable;
 		}
 
 		return $response;
