@@ -18,7 +18,7 @@ class DataGenerateController extends Controller
 
 	/**
 	 * DataGenerateController constructor.
-	 * @param DataGenerateService $data_generate_service
+	 * @param DataGenerateServiceInterface $data_generate_service
 	 */
 	public function __construct(DataGenerateServiceInterface $data_generate_service)
 	{

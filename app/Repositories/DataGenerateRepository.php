@@ -6,10 +6,10 @@ namespace App\Repositories;
  * Class DataGenerateRepository
  * @package App\Repositories
  */
-class DataGenerateRepositoryImpl implements DataGenerateRepositoryInterface
+class DataGenerateRepository implements DataGenerateRepositoryInterface
 {
 	/**
-	 * DataGenerateRepositoryImpl constructor.
+	 * DataGenerateRepository constructor.
 	 */
 	public function __construct()
 	{

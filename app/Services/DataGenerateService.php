@@ -6,10 +6,10 @@ use Faker\Factory;
 use App\Repositories\DataGenerateRepositoryInterface;
 
 /**
- * Class DataGenerateServiceImpl
+ * Class DataGenerateService
  * @package App\Services
  */
-class DataGenerateServiceImpl implements DataGenerateServiceInterface
+class DataGenerateService implements DataGenerateServiceInterface
 {
 	/**
 	 * @var DataGenerateRepositoryInterface
@@ -18,7 +18,7 @@ class DataGenerateServiceImpl implements DataGenerateServiceInterface
 
 	/**
 	 * DataGenerateService constructor.
-	 * @param DataGenerateServiceInterface $data_generate_repository
+	 * @param DataGenerateRepositoryInterface $data_generate_repository
 	 */
 	public function __construct(DataGenerateRepositoryInterface $data_generate_repository)
 	{
