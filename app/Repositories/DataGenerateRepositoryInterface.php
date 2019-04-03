@@ -3,9 +3,9 @@
 namespace App\Repositories;
 
 /**
- * Interface DataGenerateRepository
+ * Interface DataGenerateRepositoryInterface
  * @package App\Repositories
  */
-interface DataGenerateRepository
+interface DataGenerateRepositoryInterface
 {
 }
