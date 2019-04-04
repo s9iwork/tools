@@ -44,24 +44,9 @@ class DatatypeConstant
 	public const COMPANY_NAME = 7;
 
 	/**
-	 * @var int 銀行口座
+	 * @var int クレジットカード
 	 */
-	public const BANK = 8;
-
-	/**
-	 * @var int クレジットカードブランド
-	 */
-	public const CREDIT_CARD_BRAND = 9;
-
-	/**
-	 * @var int クレジットカード番号
-	 */
-	public const CREDIT_CARD_NUMBER = 10;
-
-	/**
-	 * @var int クレジットカード有効期限
-	 */
-	public const CREDIT_CARD_LIMIT = 11;
+	public const CREDIT_CARD = 11;
 
 	/**
 	 * @var int ID

@@ -23,15 +23,16 @@ class DataGenerateService implements DataGenerateServiceInterface
 	private const TYPE_VARIABLE_MAP = [
 		DatatypeConstant::COUNTRY_NAME => 'country',
 		DatatypeConstant::ZIP_CODE => 'postcode',
-		DatatypeConstant::ADDRESS => 'streetAddress',
+		DatatypeConstant::ADDRESS => [
+			'prefecture',
+			'city',
+			'streetAddress'
+		],
 		DatatypeConstant::NAME => 'name',
 		DatatypeConstant::TEL => 'phoneNumber',
 		DatatypeConstant::EMAIL => 'safeEmail',
 		DatatypeConstant::COMPANY_NAME => 'company',
-		DatatypeConstant::BANK => 'bankAccountNumber',
-		DatatypeConstant::CREDIT_CARD_BRAND => 'creditCardType',
-		DatatypeConstant::CREDIT_CARD_NUMBER => 'creditCardNumber',
-		DatatypeConstant::CREDIT_CARD_LIMIT => 'creditCardExpirationDate',
+		DatatypeConstant::CREDIT_CARD => 'creditCardDetails',
 		DatatypeConstant::ID => 'userName',
 		DatatypeConstant::PASSWORD => 'password',
 		DatatypeConstant::DOMAIN => 'domainName',
@@ -50,9 +51,9 @@ class DataGenerateService implements DataGenerateServiceInterface
 		DatatypeConstant::RGB_COLOR_CODE => 'rgbColor',
 		DatatypeConstant::COLOR_NAME => 'colorName',
 		DatatypeConstant::TIME_ZONE => 'timezone',
-		DatatypeConstant::DATE_CURRENT_YEAR => '',
-		DatatypeConstant::DATE_CURRENT_MONTH => '',
-		DatatypeConstant::DATE => '',
+		DatatypeConstant::DATE_CURRENT_YEAR => 'dateTimeThisYear',
+		DatatypeConstant::DATE_CURRENT_MONTH => 'dateTimeThisMonth',
+		DatatypeConstant::DATE => 'dateTimeThisCentury',
 		DatatypeConstant::TEXT => 'text',
 		DatatypeConstant::COUNTRY_CODE => 'countryCode',
 		DatatypeConstant::COUNTRY_CODE_3DIGIT => 'countryISOAlpha3',
@@ -83,7 +84,16 @@ class DataGenerateService implements DataGenerateServiceInterface
 		$response = [];
 		for ($i = 0; $i < 10; $i++) {
 			$variable = self::TYPE_VARIABLE_MAP[$params['type']];
-			$response[] = $faker->$variable;
+
+			if(is_array($variable)) {
+				$data = '';
+				foreach ($variable as $inner_variable) {
+					$data .= $faker->$inner_variable;
+				}
+			} else {
+				$data = $faker->$variable;
+			}
+			$response[] = $data;
 		}
 
 		return $response;
