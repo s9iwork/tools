@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'ダミーデータ作る君')
+@section('favicon', '/img/ddg/favicon.png')
 
 @section('content')
 	<ddg-top></ddg-top>
