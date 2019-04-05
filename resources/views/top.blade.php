@@ -9,7 +9,7 @@
 				<div class="card-wrapper">
 					<div class="card">
 						<div class="card-image">
-							<img src="/img/f_f_traffic_29_svg_f_traffic_29_2bg.svg">
+							<img src="/img/ddg/main.svg">
 							<span class="card-title">ダミーデータ作る君</span>
 						</div>
 						<div class="card-content">
@@ -25,7 +25,7 @@
 				<div class="card-wrapper">
 					<div class="card">
 						<div class="card-image">
-							<img src="/img/f_f_object_16_svg_f_object_16_0bg.svg">
+							<img src="/img/pc/main.svg">
 							<span class="card-title">FW速度比較</span>
 						</div>
 						<div class="card-content">
