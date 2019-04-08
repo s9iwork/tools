@@ -2021,11 +2021,11 @@ __webpack_require__.r(__webpack_exports__);
           categoryId: 3
         }, {
           id: 30,
-          name: '日付（今年）',
+          name: '日付（直近1年）',
           categoryId: 3
         }, {
           id: 31,
-          name: '日付（今月）',
+          name: '日付（直近1か月）',
           categoryId: 3
         }, {
           id: 32,
@@ -2075,7 +2075,7 @@ __webpack_require__.r(__webpack_exports__);
         5: '080-8209-9842',
         6: 'shuhei49@example.org',
         7: '株式会社 佐々木',
-        11: '11',
+        11: 'Visa,4024007140008755,宮沢 裕太,08/19',
         12: 'minoru83',
         13: '1cwZYDEPHp',
         14: 'yamagishi.net',
@@ -2094,9 +2094,9 @@ __webpack_require__.r(__webpack_exports__);
         27: '155,200,242',
         28: 'Pink',
         29: 'Asia/Manila',
-        30: '30',
-        31: '31',
-        32: '32',
+        30: '2018-05-27 12:10:15',
+        31: '2019-03-30 01:05:55',
+        32: '1999-01-15 23:38:32',
         33: 'Architecto nostrum explicabo rerum. Numquam enim qui animi quis nisi.',
         34: 'US',
         35: 'BRA',
