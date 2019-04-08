@@ -13,8 +13,8 @@
 		<div class="row tab-container">
 			<div class="col s12">
 				<ul class="tabs z-depth-1">
-					<li v-for="category in categories" class="tab col s3">
-						<a v-bind:href="'#category-' + category.id">{{ category.name }}</a>
+					<li v-for="category in categories" class="tab col s3" v-on:click="changeTab">
+						<a v-bind:href="'#category-' + category.id" v-bind:data-category-id="category.id">{{ category.name }}</a>
 					</li>
 				</ul>
 			</div>
@@ -25,7 +25,7 @@
 					<h2 class="content__h2">{{ category.name }}</h2>
 					<div v-for="type in types[category.id]">
 						<label>
-							<input class="with-gap"
+							<input class="with-gap type"
 								   type="radio"
 								   name="type"
 								   v-bind:value="type.id"
@@ -352,6 +352,14 @@
 					this.isLoading = false;
 				});
 			},
+			changeTab(event) {
+				this.createdItems = [];
+
+				let categoryId = event.target.getAttribute('data-category-id');
+				let target = document.querySelector('#category-' + categoryId + ' .type');
+				target.checked = true;
+				this.createType = target.value;
+			}
 		}
 	}
 </script>
