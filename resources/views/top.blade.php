@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('title', 'Webツール')
+@section('description', 'システムエンジニア、プログラマー向けに様々な自作Webツールを提供しています。')
+@section('keywords', 'Webツール')
 
 @section('content')
 	<main class="container">
