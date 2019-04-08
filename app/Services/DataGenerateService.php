@@ -18,9 +18,9 @@ class DataGenerateService implements DataGenerateServiceInterface
 	protected $data_generate_repository;
 
 	/**
-	 * @var array データ種別とメンバ変数のマップ
+	 * @var array データ種別と生成関数のマップ
 	 */
-	private const TYPE_VARIABLE_MAP = [
+	private const TYPE_METHOD_MAP = [
 		DatatypeConstant::COUNTRY_NAME => 'country',
 		DatatypeConstant::ZIP_CODE => 'postcode',
 		DatatypeConstant::ADDRESS => [
@@ -65,6 +65,11 @@ class DataGenerateService implements DataGenerateServiceInterface
 	];
 
 	/**
+	 * @var int データ作成数
+	 */
+	private const GENERATE_NUM = 10;
+
+	/**
 	 * DataGenerateService constructor.
 	 * @param DataGenerateRepositoryInterface $data_generate_repository
 	 */
@@ -82,18 +87,28 @@ class DataGenerateService implements DataGenerateServiceInterface
 		$faker = Factory::create('ja_JP');
 
 		$response = [];
-		for ($i = 0; $i < 10; $i++) {
-			$variable = self::TYPE_VARIABLE_MAP[$params['type']];
+		for ($i = 0; $i < self::GENERATE_NUM; $i++) {
+			$method = self::TYPE_METHOD_MAP[$params['type']];
 
-			if(is_array($variable)) {
-				$data = '';
-				foreach ($variable as $inner_variable) {
-					$data .= $faker->$inner_variable;
-				}
+			if (in_array($params['type'], [
+				DatatypeConstant::DATE,
+				DatatypeConstant::DATE_CURRENT_MONTH,
+				DatatypeConstant::DATE_CURRENT_YEAR
+			])) {
+				$data = $faker->$method()->format('Y-m-d H:i:s');
 			} else {
-				$data = $faker->$variable;
+				if (is_array($method)) {
+					$data = '';
+					foreach ($method as $inner_method) {
+						$data .= $faker->$inner_method();
+					}
+				} else {
+					$data = $faker->$method();
+				}
 			}
-			$response[] = $data;
+
+			// 配列であればvalueをカンマ区切りで返却する
+			$response[] = is_array($data) ? implode(',', array_values($data)) : $data;
 		}
 
 		return $response;

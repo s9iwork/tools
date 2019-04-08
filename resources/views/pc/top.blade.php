@@ -4,7 +4,11 @@
 @section('favicon', '/img/pc/favicon.png')
 
 @section('content')
-	ふがふが
+	<main>
+		<div class="center" style="height: 300px; line-height: 300px;">
+			Coming soon...
+		</div>
+	</main>
 @endsection
 
 @include('layouts.head')
