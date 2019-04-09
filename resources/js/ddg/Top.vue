@@ -61,6 +61,9 @@
 					{{ item }}
 				</div>
 			</div>
+			<div class="center-align">
+				<button class="btn waves-effect waves-light" v-on:click="copy">コピー</button>
+			</div>
 		</div>
 	</main>
 </template>
@@ -359,6 +362,9 @@
 				let target = document.querySelector('#category-' + categoryId + ' .type');
 				target.checked = true;
 				this.createType = target.value;
+			},
+			copy() {
+				M.toast({html: 'コピーしました'})
 			}
 		}
 	}
