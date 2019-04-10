@@ -1894,6 +1894,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2128,7 +2129,6 @@ __webpack_require__.r(__webpack_exports__);
           type: this.createType
         }
       }).then(function (res) {
-        console.log(res.data.items);
         _this.createdItems = res.data.items;
       }).catch(function (error) {
         alert('エラーが発生しました');
@@ -2145,8 +2145,48 @@ __webpack_require__.r(__webpack_exports__);
       this.createType = target.value;
     },
     copy: function copy() {
-      M.toast({
+      var copyString = "";
+      var createdItems = document.getElementsByClassName('created-item');
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = createdItems[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var item = _step.value;
+          copyString += item.innerText + "\n";
+        } // クリップボードにコピー
+
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return != null) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+
+      var temp = document.createElement('div');
+      temp.appendChild(document.createElement('pre')).textContent = copyString; // 画面外に固定
+
+      var style = temp.style;
+      style.position = 'fixed';
+      style.left = '-100%';
+      document.body.appendChild(temp);
+      document.getSelection().selectAllChildren(temp);
+      var result = document.execCommand('copy');
+      document.body.removeChild(temp);
+      console.log(copyString);
+      result ? M.toast({
         html: 'コピーしました'
+      }) : M.toast({
+        html: 'コピーに失敗しました。リロードしてお試しください'
       });
     }
   }
@@ -19982,7 +20022,7 @@ var render = function() {
               _c("h2", { staticClass: "content__h2" }, [_vm._v("結果")]),
               _vm._v(" "),
               _vm._l(_vm.createdItems, function(item) {
-                return _c("div", [
+                return _c("div", { staticClass: "created-item" }, [
                   _vm._v("\n\t\t\t\t" + _vm._s(item) + "\n\t\t\t")
                 ])
               })
@@ -45331,8 +45371,8 @@ var $jscomp$this = this;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\user\Documents\local\tools\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\user\Documents\local\tools\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /vagrant/webapps/php/laravel/tools/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /vagrant/webapps/php/laravel/tools/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

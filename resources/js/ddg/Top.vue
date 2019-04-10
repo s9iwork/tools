@@ -14,7 +14,8 @@
 			<div class="col s12">
 				<ul class="tabs z-depth-1">
 					<li v-for="category in categories" class="tab col s3" v-on:click="changeTab">
-						<a v-bind:href="'#category-' + category.id" v-bind:data-category-id="category.id">{{ category.name }}</a>
+						<a v-bind:href="'#category-' + category.id" v-bind:data-category-id="category.id">{{
+							category.name }}</a>
 					</li>
 				</ul>
 			</div>
@@ -29,7 +30,7 @@
 								   type="radio"
 								   name="type"
 								   v-bind:value="type.id"
-								   v-model="createType" />
+								   v-model="createType"/>
 							<span>{{ type.name }}</span>
 						</label>
 					</div>
@@ -57,7 +58,7 @@
 		<div class="row" v-if="createdItems.length > 0">
 			<div class="col s12">
 				<h2 class="content__h2">結果</h2>
-				<div v-for="item in createdItems">
+				<div class="created-item" v-for="item in createdItems">
 					{{ item }}
 				</div>
 			</div>
@@ -346,7 +347,6 @@
 						type: this.createType
 					}
 				}).then(res => {
-					console.log(res.data.items);
 					this.createdItems = res.data.items;
 				}).catch(error => {
 					alert('エラーが発生しました');
@@ -364,7 +364,28 @@
 				this.createType = target.value;
 			},
 			copy() {
-				M.toast({html: 'コピーしました'})
+				let copyString = "";
+				let createdItems = document.getElementsByClassName('created-item');
+				for (let item of createdItems) {
+					copyString += (item.innerText + "\n");
+				}
+
+				// クリップボードにコピー
+				let temp = document.createElement('div');
+				temp.appendChild(document.createElement('pre')).textContent = copyString;
+
+				// 画面外に固定
+				let style = temp.style;
+				style.position = 'fixed';
+				style.left = '-100%';
+				document.body.appendChild(temp);
+				document.getSelection().selectAllChildren(temp);
+
+				var result = document.execCommand('copy');
+				document.body.removeChild(temp);
+				console.log(copyString);
+				result ? M.toast({html: 'コピーしました'}) : M.toast({html: 'コピーに失敗しました。リロードしてお試しください'});
+
 			}
 		}
 	}
