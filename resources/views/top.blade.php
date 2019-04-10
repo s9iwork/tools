@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Webツール')
+@section('favicon', '/img/favicon.png')
 @section('description', 'システムエンジニア、プログラマー向けに様々な自作Webツールを提供しています。')
 @section('keywords', 'Webツール')
 
