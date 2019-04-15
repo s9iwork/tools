@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'FW速度比較')
-@section('favicon', '/img/pc/favicon.png')
+@section('title', 'ユーティリティ君')
+@section('favicon', '/img/util/favicon.png')
 @section('description', '')
 @section('keywords', '')
 
@@ -14,5 +14,5 @@
 @endsection
 
 @include('layouts.head')
-@include('layouts.header')
+@include('util.layouts.header')
 @include('layouts.footer')

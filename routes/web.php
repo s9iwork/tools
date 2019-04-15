@@ -5,4 +5,4 @@ Route::get('/', function () {
 })->name('top');
 
 Route::get('/ddg', 'DataGenerateController@index')->name('ddg');
-Route::get('/pc', 'PcController@index')->name('pc');
+Route::get('/util', 'UtilityController@index')->name('util');

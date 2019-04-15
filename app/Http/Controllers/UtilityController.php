@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PcController extends Controller
+class UtilityController extends Controller
 {
 	/**
 	 * トップページを表示する
@@ -13,6 +13,6 @@ class PcController extends Controller
 	 */
 	public function index()
 	{
-		return view('pc/top');
+		return view('util/top');
 	}
 }
