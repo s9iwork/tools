@@ -28,14 +28,14 @@
 				<div class="card-wrapper">
 					<div class="card">
 						<div class="card-image">
-							<img src="/img/pc/main.svg">
-							<span class="card-title">FW速度比較</span>
+							<img src="/img/util/main.svg">
+							<span class="card-title">ユーティリティ君</span>
 						</div>
 						<div class="card-content">
-							<p>FW別の応答速度を比較するツールです。</p>
+							<p>Web開発で利用シーンが多いユーティリティ（クラス）をまとめたツールです。</p>
 						</div>
 						<div class="card-action">
-							<a href="/pc">View</a>
+							<a href="/util">View</a>
 						</div>
 					</div>
 				</div>
