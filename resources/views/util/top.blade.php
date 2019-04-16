@@ -6,11 +6,7 @@
 @section('keywords', '')
 
 @section('content')
-	<main>
-		<div class="center" style="height: 300px; line-height: 300px;">
-			Coming soon...
-		</div>
-	</main>
+	<util-top></util-top>
 @endsection
 
 @include('layouts.head')

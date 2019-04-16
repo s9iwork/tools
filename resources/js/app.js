@@ -24,6 +24,7 @@ window.Vue = require('vue');
 
 Vue.component('loader', require('./components/Loader').default);
 Vue.component('ddg-top', require('./ddg/Top').default);
+Vue.component('util-top', require('./util/Top').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
