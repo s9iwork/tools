@@ -36,6 +36,22 @@ class DataGenerateController extends Controller
 	}
 
 	/**
+	 * 初期データを取得する
+	 *
+	 * @throws
+	 * @return array
+	 */
+	public function get_initial_data()
+	{
+		list($categories, $data_types) = $this->data_generate_service->get_initial_data();
+
+		return [
+			'categories' => $categories,
+			'data_types' => $data_types,
+		];
+	}
+
+	/**
 	 * ダミーデータを生成する
 	 *
 	 * @throws
