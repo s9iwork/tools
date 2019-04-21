@@ -1895,246 +1895,70 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      isInitialized: false,
       isLoading: false,
-      createType: 1,
-      categories: [{
-        id: 1,
-        name: '個人情報系'
-      }, {
-        id: 2,
-        name: 'Web系'
-      }, {
-        id: 3,
-        name: '時間系'
-      }, {
-        id: 4,
-        name: '未分類'
-      }],
-      types: {
-        1: [// 個人情報系
-        {
-          id: 1,
-          name: '国',
-          categoryId: 1
-        }, {
-          id: 2,
-          name: '郵便番号',
-          categoryId: 1
-        }, {
-          id: 3,
-          name: '住所',
-          categoryId: 1
-        }, {
-          id: 4,
-          name: '名前',
-          categoryId: 1
-        }, {
-          id: 5,
-          name: '電話番号',
-          categoryId: 1
-        }, {
-          id: 6,
-          name: 'メールアドレス（ダミー）',
-          categoryId: 1
-        }, {
-          id: 7,
-          name: '会社名',
-          categoryId: 1
-        }, {
-          id: 11,
-          name: 'クレジットカード',
-          categoryId: 1
-        }],
-        2: [// Web系
-        {
-          id: 12,
-          name: 'ID',
-          categoryId: 2
-        }, {
-          id: 13,
-          name: 'パスワード',
-          categoryId: 2
-        }, {
-          id: 14,
-          name: 'ドメイン名',
-          categoryId: 2
-        }, {
-          id: 15,
-          name: 'トップレベルドメイン',
-          categoryId: 2
-        }, {
-          id: 16,
-          name: 'URL',
-          categoryId: 2
-        }, {
-          id: 17,
-          name: 'IPV4アドレス',
-          categoryId: 2
-        }, {
-          id: 18,
-          name: 'IPV6アドレス',
-          categoryId: 2
-        }, {
-          id: 19,
-          name: 'UserAgent',
-          categoryId: 2
-        }, {
-          id: 20,
-          name: 'UserAgent(Chrome)',
-          categoryId: 2
-        }, {
-          id: 21,
-          name: 'UserAgent(Safari)',
-          categoryId: 2
-        }, {
-          id: 22,
-          name: 'UserAgent(Opera)',
-          categoryId: 2
-        }, {
-          id: 23,
-          name: 'UserAgent(IE)',
-          categoryId: 2
-        }, {
-          id: 24,
-          name: 'MIMEタイプ',
-          categoryId: 2
-        }, {
-          id: 25,
-          name: '拡張子',
-          categoryId: 2
-        }, {
-          id: 26,
-          name: '16進数カラーコード',
-          categoryId: 2
-        }, {
-          id: 27,
-          name: 'RGBカラー',
-          categoryId: 2
-        }, {
-          id: 28,
-          name: 'カラー名',
-          categoryId: 2
-        }],
-        3: [// 日付系
-        {
-          id: 29,
-          name: 'タイムゾーン',
-          categoryId: 3
-        }, {
-          id: 30,
-          name: '日付（直近1年）',
-          categoryId: 3
-        }, {
-          id: 31,
-          name: '日付（直近1か月）',
-          categoryId: 3
-        }, {
-          id: 32,
-          name: '日付',
-          categoryId: 3
-        }],
-        4: [// 未分類
-        {
-          id: 33,
-          name: 'フリーテキスト',
-          categoryId: 4
-        }, {
-          id: 34,
-          name: '国コード',
-          categoryId: 4
-        }, {
-          id: 35,
-          name: '国コード(3桁)',
-          categoryId: 4
-        }, {
-          id: 36,
-          name: '通貨コード',
-          categoryId: 4
-        }, {
-          id: 37,
-          name: '緯度',
-          categoryId: 4
-        }, {
-          id: 38,
-          name: '経度',
-          categoryId: 4
-        }, {
-          id: 39,
-          name: 'ISBN-13(書籍コード)',
-          categoryId: 4
-        }, {
-          id: 40,
-          name: 'ISBN-10',
-          categoryId: 4
-        }]
-      },
-      samples: {
-        1: 'イギリス',
-        2: '6185699',
-        3: '福島県西之園市宮沢町山本4-2-2',
-        4: '小林 修平',
-        5: '080-8209-9842',
-        6: 'shuhei49@example.org',
-        7: '株式会社 佐々木',
-        11: 'Visa,4024007140008755,宮沢 裕太,08/19',
-        12: 'minoru83',
-        13: '1cwZYDEPHp',
-        14: 'yamagishi.net',
-        15: 'com',
-        16: 'https://www.takahashi.biz/sint-id-at-provident-et-qui\n',
-        17: '113.193.77.56',
-        18: '2342:6b4c:ef9d:b54f:67d3:e738:6866:aecb',
-        19: 'Mozilla/5.0 (compatible; MSIE 11.0; Windows NT 5.0; Trident/5.0)',
-        20: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/5331 (KHTML, like Gecko) Chrome/37.0.817.0 Mobile Safari/5331',
-        21: 'Mozilla/5.0 (Windows; U; Windows NT 5.1) AppleWebKit/535.2.4 (KHTML, like Gecko) Version/5.0.5 Safari/535.2.4',
-        22: 'Opera/8.22 (Windows NT 6.1; sl-SI) Presto/2.9.170 Version/12.00',
-        23: 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 4.0; Trident/5.0)',
-        24: 'application/pkixcmp',
-        25: 'bmp',
-        26: '#b1d513',
-        27: '155,200,242',
-        28: 'Pink',
-        29: 'Asia/Manila',
-        30: '2018-05-27 12:10:15',
-        31: '2019-03-30 01:05:55',
-        32: '1999-01-15 23:38:32',
-        33: 'Architecto nostrum explicabo rerum. Numquam enim qui animi quis nisi.',
-        34: 'US',
-        35: 'BRA',
-        36: 'JPY',
-        37: '67.497947',
-        38: '74.066367',
-        39: '9791765867397',
-        40: '147131121X'
-      },
+      selectedType: 1,
+      categories: [],
+      types: [],
+      samples: [],
       createdItems: []
     };
   },
   mounted: function mounted() {
-    document.addEventListener('DOMContentLoaded', function () {
-      M.Tabs.init(document.querySelectorAll('.tabs'), {});
-    });
+    this.loadInitialData();
+  },
+  updated: function updated() {
+    M.Tabs.init(document.querySelectorAll('.tabs'), {});
   },
   methods: {
-    create: function create() {
+    loadInitialData: function loadInitialData() {
       var _this = this;
+
+      axios.get('/api/initial_data', {
+        params: {}
+      }).then(function (res) {
+        _this.categories = res.data.categories; // 種別とサンプルを整形する
+
+        var types = [];
+        var samples = {};
+        res.data.data_types.forEach(function (val, index) {
+          if (types[val.category_id] === undefined) types[val.category_id] = [];
+          types[val.category_id].push(val);
+          samples[val.id] = val.sample;
+        });
+        _this.types = types;
+        _this.samples = samples;
+        _this.isInitialized = true;
+      }).catch(function (error) {
+        alert('エラーが発生しました');
+        console.log(error);
+      });
+    },
+    create: function create() {
+      var _this2 = this;
 
       this.createdItems = [];
       this.isLoading = true;
       axios.get('/api/create', {
         params: {
-          type: this.createType
+          type: this.selectedType
         }
       }).then(function (res) {
-        _this.createdItems = res.data.items;
+        _this2.createdItems = res.data.items;
       }).catch(function (error) {
         alert('エラーが発生しました');
         console.log(error);
       }).finally(function () {
-        _this.isLoading = false;
+        _this2.isLoading = false;
       });
     },
     changeTab: function changeTab(event) {
@@ -2142,7 +1966,7 @@ __webpack_require__.r(__webpack_exports__);
       var categoryId = event.target.getAttribute('data-category-id');
       var target = document.querySelector('#category-' + categoryId + ' .type');
       target.checked = true;
-      this.createType = target.value;
+      this.selectedType = target.value;
     },
     copy: function copy() {
       var copyString = "";
@@ -19900,146 +19724,166 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("main", { staticClass: "container" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "row tab-container" }, [
-      _c("div", { staticClass: "col s12" }, [
-        _c(
-          "ul",
-          { staticClass: "tabs z-depth-1" },
-          _vm._l(_vm.categories, function(category) {
-            return _c(
-              "li",
-              { staticClass: "tab col s3", on: { click: _vm.changeTab } },
-              [
-                _c(
-                  "a",
-                  {
-                    attrs: {
-                      href: "#category-" + category.id,
-                      "data-category-id": category.id
-                    }
-                  },
-                  [_vm._v(_vm._s(category.name))]
-                )
-              ]
-            )
-          }),
-          0
-        )
-      ])
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "row" },
-      _vm._l(_vm.categories, function(category) {
-        return _c("div", { attrs: { id: "category-" + category.id } }, [
+    !_vm.isInitialized
+      ? _c("div", { staticClass: "row" }, [
           _c(
             "div",
-            { staticClass: "col s12 m6" },
-            [
-              _c("h2", { staticClass: "content__h2" }, [
-                _vm._v(_vm._s(category.name))
-              ]),
-              _vm._v(" "),
-              _vm._l(_vm.types[category.id], function(type) {
-                return _c("div", [
-                  _c("label", [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.createType,
-                          expression: "createType"
-                        }
-                      ],
-                      staticClass: "with-gap type",
-                      attrs: { type: "radio", name: "type" },
-                      domProps: {
-                        value: type.id,
-                        checked: _vm._q(_vm.createType, type.id)
-                      },
-                      on: {
-                        change: function($event) {
-                          _vm.createType = type.id
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(type.name))])
-                  ])
-                ])
-              })
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "col s12 m6" }, [
-            _c("h2", { staticClass: "content__h2" }, [
-              _vm._v("\n\t\t\t\t\tサンプル\n\t\t\t\t")
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _vm._v(
-                "\n\t\t\t\t\t" +
-                  _vm._s(_vm.samples[_vm.createType]) +
-                  "\n\t\t\t\t"
-              )
-            ])
-          ])
-        ])
-      }),
-      0
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col s12 center-align" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn waves-effect waves-light",
-            on: { click: _vm.create }
-          },
-          [_vm._v("作成")]
-        )
-      ])
-    ]),
-    _vm._v(" "),
-    _vm.isLoading
-      ? _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col s12 center-align" }, [_c("loader")], 1)
+            { staticClass: "col s12 center-align initial-loader" },
+            [_c("loader")],
+            1
+          )
         ])
       : _vm._e(),
     _vm._v(" "),
-    _vm.createdItems.length > 0
-      ? _c("div", { staticClass: "row" }, [
+    _vm.isInitialized
+      ? _c("div", [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "row tab-container" }, [
+            _c("div", { staticClass: "col s12" }, [
+              _c(
+                "ul",
+                { staticClass: "tabs z-depth-1" },
+                _vm._l(_vm.categories, function(category) {
+                  return _c(
+                    "li",
+                    { staticClass: "tab col s3", on: { click: _vm.changeTab } },
+                    [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: "#category-" + category.id,
+                            "data-category-id": category.id
+                          }
+                        },
+                        [_vm._v(_vm._s(category.name))]
+                      )
+                    ]
+                  )
+                }),
+                0
+              )
+            ])
+          ]),
+          _vm._v(" "),
           _c(
             "div",
-            { staticClass: "col s12" },
-            [
-              _c("h2", { staticClass: "content__h2" }, [_vm._v("結果")]),
-              _vm._v(" "),
-              _vm._l(_vm.createdItems, function(item) {
-                return _c("div", { staticClass: "created-item" }, [
-                  _vm._v("\n\t\t\t\t" + _vm._s(item) + "\n\t\t\t")
+            { staticClass: "row" },
+            _vm._l(_vm.categories, function(category) {
+              return _c("div", { attrs: { id: "category-" + category.id } }, [
+                _c(
+                  "div",
+                  { staticClass: "col s12 m6" },
+                  [
+                    _c("h2", { staticClass: "content__h2" }, [
+                      _vm._v(_vm._s(category.name))
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.types[category.id], function(type) {
+                      return _c("div", [
+                        _c("label", [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.selectedType,
+                                expression: "selectedType"
+                              }
+                            ],
+                            staticClass: "with-gap type",
+                            attrs: { type: "radio", name: "type" },
+                            domProps: {
+                              value: type.id,
+                              checked: _vm._q(_vm.selectedType, type.id)
+                            },
+                            on: {
+                              change: function($event) {
+                                _vm.selectedType = type.id
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("span", [_vm._v(_vm._s(type.name))])
+                        ])
+                      ])
+                    })
+                  ],
+                  2
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "col s12 m6" }, [
+                  _c("h2", { staticClass: "content__h2" }, [
+                    _vm._v("\n\t\t\t\t\t\tサンプル\n\t\t\t\t\t")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t" +
+                        _vm._s(_vm.samples[_vm.selectedType]) +
+                        "\n\t\t\t\t\t"
+                    )
+                  ])
                 ])
-              })
-            ],
-            2
+              ])
+            }),
+            0
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "center-align" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn waves-effect waves-light",
-                on: { click: _vm.copy }
-              },
-              [_vm._v("コピー")]
-            )
-          ])
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col s12 center-align" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn waves-effect waves-light",
+                  on: { click: _vm.create }
+                },
+                [_vm._v("作成")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _vm.isLoading
+            ? _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col s12 center-align" },
+                  [_c("loader")],
+                  1
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.createdItems.length > 0
+            ? _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col s12" },
+                  [
+                    _c("h2", { staticClass: "content__h2" }, [_vm._v("結果")]),
+                    _vm._v(" "),
+                    _vm._l(_vm.createdItems, function(item) {
+                      return _c("div", { staticClass: "created-item" }, [
+                        _vm._v("\n\t\t\t\t\t" + _vm._s(item) + "\n\t\t\t\t")
+                      ])
+                    })
+                  ],
+                  2
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "center-align" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn waves-effect waves-light",
+                      on: { click: _vm.copy }
+                    },
+                    [_vm._v("コピー")]
+                  )
+                ])
+              ])
+            : _vm._e()
         ])
       : _vm._e()
   ])
@@ -20052,12 +19896,12 @@ var staticRenderFns = [
     return _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col s12" }, [
         _c("h2", { staticClass: "content__h2" }, [
-          _vm._v("\n\t\t\t\tこのツールについて\n\t\t\t")
+          _vm._v("\n\t\t\t\t\tこのツールについて\n\t\t\t\t")
         ]),
         _vm._v(" "),
         _c("div", [
           _vm._v(
-            "\n\t\t\t\t指定した種別のダミーデータを10件作成します。\n\t\t\t"
+            "\n\t\t\t\t\t指定した種別のダミーデータを10件作成します。\n\t\t\t\t"
           )
         ])
       ])
