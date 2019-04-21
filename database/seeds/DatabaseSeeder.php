@@ -11,9 +11,7 @@ class DatabaseSeeder extends Seeder
 	 */
 	public function run()
 	{
-		$this->call(
-			DdgCategoriesTableSeeder::class,
-			DdgDataTypesTableSeeder::class
-		);
+		$this->call(DdgCategoriesTableSeeder::class);
+		$this->call(DdgDataTypesTableSeeder::class);
 	}
 }

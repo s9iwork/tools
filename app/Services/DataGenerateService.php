@@ -80,64 +80,18 @@ class DataGenerateService implements DataGenerateServiceInterface
 
 
 	/**
-	 * @param array $params リクエストパラメータ
-	 * @return array
+	 * {@inheritdoc}
 	 */
-	public function get_initial_data(): array
+	public function getInitialData(): array
 	{
-		// TODO サンプル実装。リポジトリ経由でDBから取る
-		$categories = [
-			[
-				'id'=> 1,
-				'name'=> '個人情報系',
-			],
-			[
-				'id'=> 2,
-				'name'=> 'Web系',
-			],
-			[
-				'id'=> 3,
-				'name'=> '時間系',
-			],
-			[
-				'id'=> 4,
-				'name'=> '未分類',
-			],
-		];
-
-		$data_types = [
-			[
-				'id'=> 1,
-				'name' => '国',
-				'category_id' => 1,
-				'sample' => 'hogehoge',
-			],
-			[
-				'id'=> 2,
-				'name' => '郵便番号',
-				'category_id' => 1,
-				'sample' => 'hogehoge2',
-			],
-			[
-				'id'=> 12,
-				'name' => '国',
-				'category_id' => 2,
-				'sample' => 'hogehoge3',
-			],
-			[
-				'id'=> 13,
-				'name' => '郵便番号',
-				'category_id' => 2,
-				'sample' => 'hogehoge4',
-			],
-		];
+		$categories = $this->data_generate_repository->getCategories();
+		$data_types = $this->data_generate_repository->getDataTypes();
 
 		return [$categories, $data_types];
 	}
 
 	/**
-	 * @param array $params リクエストパラメータ
-	 * @return array
+	 * {@inheritdoc}
 	 */
 	public function create(array $params = []): array
 	{

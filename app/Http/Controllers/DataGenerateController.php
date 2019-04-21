@@ -41,9 +41,9 @@ class DataGenerateController extends Controller
 	 * @throws
 	 * @return array
 	 */
-	public function get_initial_data()
+	public function getInitialData() :array
 	{
-		list($categories, $data_types) = $this->data_generate_service->get_initial_data();
+		list($categories, $data_types) = $this->data_generate_service->getInitialData();
 
 		return [
 			'categories' => $categories,

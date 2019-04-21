@@ -1894,6 +1894,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1910,11 +1917,7 @@ __webpack_require__.r(__webpack_exports__);
     this.loadInitialData();
   },
   updated: function updated() {
-    // 初回のみ実行
-    if (!this.isInitialized) {
-      M.Tabs.init(document.querySelectorAll('.tabs'), {});
-      this.isInitialized = true;
-    }
+    M.Tabs.init(document.querySelectorAll('.tabs'), {});
   },
   methods: {
     loadInitialData: function loadInitialData() {
@@ -1928,12 +1931,13 @@ __webpack_require__.r(__webpack_exports__);
         var types = [];
         var samples = {};
         res.data.data_types.forEach(function (val, index) {
-          if (types[val.category_id] == undefined) types[val.category_id] = [];
+          if (types[val.category_id] === undefined) types[val.category_id] = [];
           types[val.category_id].push(val);
           samples[val.id] = val.sample;
         });
         _this.types = types;
         _this.samples = samples;
+        _this.isInitialized = true;
       }).catch(function (error) {
         alert('エラーが発生しました');
         console.log(error);
@@ -19720,146 +19724,166 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("main", { staticClass: "container" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "row tab-container" }, [
-      _c("div", { staticClass: "col s12" }, [
-        _c(
-          "ul",
-          { staticClass: "tabs z-depth-1" },
-          _vm._l(_vm.categories, function(category) {
-            return _c(
-              "li",
-              { staticClass: "tab col s3", on: { click: _vm.changeTab } },
-              [
-                _c(
-                  "a",
-                  {
-                    attrs: {
-                      href: "#category-" + category.id,
-                      "data-category-id": category.id
-                    }
-                  },
-                  [_vm._v(_vm._s(category.name))]
-                )
-              ]
-            )
-          }),
-          0
-        )
-      ])
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "row" },
-      _vm._l(_vm.categories, function(category) {
-        return _c("div", { attrs: { id: "category-" + category.id } }, [
+    !_vm.isInitialized
+      ? _c("div", { staticClass: "row" }, [
           _c(
             "div",
-            { staticClass: "col s12 m6" },
-            [
-              _c("h2", { staticClass: "content__h2" }, [
-                _vm._v(_vm._s(category.name))
-              ]),
-              _vm._v(" "),
-              _vm._l(_vm.types[category.id], function(type) {
-                return _c("div", [
-                  _c("label", [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.selectedType,
-                          expression: "selectedType"
-                        }
-                      ],
-                      staticClass: "with-gap type",
-                      attrs: { type: "radio", name: "type" },
-                      domProps: {
-                        value: type.id,
-                        checked: _vm._q(_vm.selectedType, type.id)
-                      },
-                      on: {
-                        change: function($event) {
-                          _vm.selectedType = type.id
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(type.name))])
-                  ])
-                ])
-              })
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "col s12 m6" }, [
-            _c("h2", { staticClass: "content__h2" }, [
-              _vm._v("\n\t\t\t\t\tサンプル\n\t\t\t\t")
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _vm._v(
-                "\n\t\t\t\t\t" +
-                  _vm._s(_vm.samples[_vm.selectedType]) +
-                  "\n\t\t\t\t"
-              )
-            ])
-          ])
-        ])
-      }),
-      0
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col s12 center-align" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn waves-effect waves-light",
-            on: { click: _vm.create }
-          },
-          [_vm._v("作成")]
-        )
-      ])
-    ]),
-    _vm._v(" "),
-    _vm.isLoading
-      ? _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col s12 center-align" }, [_c("loader")], 1)
+            { staticClass: "col s12 center-align initial-loader" },
+            [_c("loader")],
+            1
+          )
         ])
       : _vm._e(),
     _vm._v(" "),
-    _vm.createdItems.length > 0
-      ? _c("div", { staticClass: "row" }, [
+    _vm.isInitialized
+      ? _c("div", [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "row tab-container" }, [
+            _c("div", { staticClass: "col s12" }, [
+              _c(
+                "ul",
+                { staticClass: "tabs z-depth-1" },
+                _vm._l(_vm.categories, function(category) {
+                  return _c(
+                    "li",
+                    { staticClass: "tab col s3", on: { click: _vm.changeTab } },
+                    [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: "#category-" + category.id,
+                            "data-category-id": category.id
+                          }
+                        },
+                        [_vm._v(_vm._s(category.name))]
+                      )
+                    ]
+                  )
+                }),
+                0
+              )
+            ])
+          ]),
+          _vm._v(" "),
           _c(
             "div",
-            { staticClass: "col s12" },
-            [
-              _c("h2", { staticClass: "content__h2" }, [_vm._v("結果")]),
-              _vm._v(" "),
-              _vm._l(_vm.createdItems, function(item) {
-                return _c("div", { staticClass: "created-item" }, [
-                  _vm._v("\n\t\t\t\t" + _vm._s(item) + "\n\t\t\t")
+            { staticClass: "row" },
+            _vm._l(_vm.categories, function(category) {
+              return _c("div", { attrs: { id: "category-" + category.id } }, [
+                _c(
+                  "div",
+                  { staticClass: "col s12 m6" },
+                  [
+                    _c("h2", { staticClass: "content__h2" }, [
+                      _vm._v(_vm._s(category.name))
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.types[category.id], function(type) {
+                      return _c("div", [
+                        _c("label", [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.selectedType,
+                                expression: "selectedType"
+                              }
+                            ],
+                            staticClass: "with-gap type",
+                            attrs: { type: "radio", name: "type" },
+                            domProps: {
+                              value: type.id,
+                              checked: _vm._q(_vm.selectedType, type.id)
+                            },
+                            on: {
+                              change: function($event) {
+                                _vm.selectedType = type.id
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("span", [_vm._v(_vm._s(type.name))])
+                        ])
+                      ])
+                    })
+                  ],
+                  2
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "col s12 m6" }, [
+                  _c("h2", { staticClass: "content__h2" }, [
+                    _vm._v("\n\t\t\t\t\t\tサンプル\n\t\t\t\t\t")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t" +
+                        _vm._s(_vm.samples[_vm.selectedType]) +
+                        "\n\t\t\t\t\t"
+                    )
+                  ])
                 ])
-              })
-            ],
-            2
+              ])
+            }),
+            0
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "center-align" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn waves-effect waves-light",
-                on: { click: _vm.copy }
-              },
-              [_vm._v("コピー")]
-            )
-          ])
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col s12 center-align" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn waves-effect waves-light",
+                  on: { click: _vm.create }
+                },
+                [_vm._v("作成")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _vm.isLoading
+            ? _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col s12 center-align" },
+                  [_c("loader")],
+                  1
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.createdItems.length > 0
+            ? _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col s12" },
+                  [
+                    _c("h2", { staticClass: "content__h2" }, [_vm._v("結果")]),
+                    _vm._v(" "),
+                    _vm._l(_vm.createdItems, function(item) {
+                      return _c("div", { staticClass: "created-item" }, [
+                        _vm._v("\n\t\t\t\t\t" + _vm._s(item) + "\n\t\t\t\t")
+                      ])
+                    })
+                  ],
+                  2
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "center-align" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn waves-effect waves-light",
+                      on: { click: _vm.copy }
+                    },
+                    [_vm._v("コピー")]
+                  )
+                ])
+              ])
+            : _vm._e()
         ])
       : _vm._e()
   ])
@@ -19872,12 +19896,12 @@ var staticRenderFns = [
     return _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col s12" }, [
         _c("h2", { staticClass: "content__h2" }, [
-          _vm._v("\n\t\t\t\tこのツールについて\n\t\t\t")
+          _vm._v("\n\t\t\t\t\tこのツールについて\n\t\t\t\t")
         ]),
         _vm._v(" "),
         _c("div", [
           _vm._v(
-            "\n\t\t\t\t指定した種別のダミーデータを10件作成します。\n\t\t\t"
+            "\n\t\t\t\t\t指定した種別のダミーデータを10件作成します。\n\t\t\t\t"
           )
         ])
       ])
@@ -45191,8 +45215,8 @@ var $jscomp$this = this;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\user\Documents\local\tools\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\user\Documents\local\tools\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /vagrant/webapps/php/laravel/tools/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /vagrant/webapps/php/laravel/tools/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
