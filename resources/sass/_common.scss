@@ -6,6 +6,12 @@
   margin: 0;
 }
 
+@media only screen and (max-width: 480px) {
+  .header__title {
+    font-size: 1.4rem !important;
+  }
+}
+
 .initial-loader{
   height: 300px;
   line-height: 300px;
