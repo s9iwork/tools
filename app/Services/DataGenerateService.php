@@ -15,7 +15,7 @@ class DataGenerateService implements DataGenerateServiceInterface
 	/**
 	 * @var DataGenerateRepositoryInterface
 	 */
-	protected $data_generate_repository;
+	private $data_generate_repository;
 
 	/**
 	 * @var array データ種別と生成関数のマップ
