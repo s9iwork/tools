@@ -16,7 +16,7 @@ class CreateDdgDataTypesTable extends Migration
 		Schema::create('ddg_data_types', function (Blueprint $table) {
 			$table->bigIncrements('id');
 			$table->string('name');
-			$table->string('category_id');
+			$table->bigInteger('category_id');
 			$table->string('sample');
 			$table->timestamps();
 		});
