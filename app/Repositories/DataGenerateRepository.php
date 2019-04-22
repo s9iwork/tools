@@ -12,11 +12,25 @@ use App\DdgDataType;
 class DataGenerateRepository implements DataGenerateRepositoryInterface
 {
 	/**
-	 * DataGenerateRepository constructor.
+	 * @var DdgCategory
 	 */
-	public function __construct()
-	{
+	private $ddg_category;
 
+	/**
+	 * @var DdgDataType
+	 */
+	private $ddg_data_types;
+
+	/**
+	 * DataGenerateRepository constructor.
+	 *
+	 * @param DdgCategory $ddg_category
+	 * @param DdgDataType $ddg_data_type
+	 */
+	public function __construct(DdgCategory $ddg_category, DdgDataType $ddg_data_type)
+	{
+		$this->ddg_category = $ddg_category;
+		$this->ddg_data_types = $ddg_data_type;
 	}
 
 	/**
@@ -24,7 +38,7 @@ class DataGenerateRepository implements DataGenerateRepositoryInterface
 	 */
 	public function getCategories(): array
 	{
-		return DdgCategory::all()->toArray();
+		return $this->ddg_category->all()->toArray();
 	}
 
 	/**
@@ -32,6 +46,6 @@ class DataGenerateRepository implements DataGenerateRepositoryInterface
 	 */
 	public function getDataTypes(): array
 	{
-		return DdgDataType::all()->toArray();
+		return $this->ddg_data_types->all()->toArray();
 	}
 }
