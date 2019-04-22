@@ -32,14 +32,15 @@ class DataGenerateServiceTest extends TestCase
 				'name' => 'fuga',
 			]
 		];
-
 		$mock = $this->mock(DataGenerateRepository::class, function ($mock) use ($mock_categories, $mock_data_types) {
 			$mock->shouldReceive('getCategories')->with()->andReturn($mock_categories);
 			$mock->shouldReceive('getDataTypes')->with()->andReturn($mock_data_types);
 		});
+		$this->app->instance(DataGenerateRepository::class, $mock);
 
 		// テスト
-		list($categories, $data_types) = (new DataGenerateService($mock))->getInitialData();
+		$service = $this->app->make(DataGenerateService::class);
+		list($categories, $data_types) = $service->getInitialData();
 
 		// データ確認
 		$this->assertSame($mock_categories, $categories);
