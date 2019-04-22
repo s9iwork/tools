@@ -18,6 +18,7 @@ class DataGenerateServiceTest extends TestCase
 	 */
 	public function test_getInitialData_01()
 	{
+		// モックの設定
 		$mock_categories = [
 			[
 				'id' => 1,
@@ -37,9 +38,10 @@ class DataGenerateServiceTest extends TestCase
 			$mock->shouldReceive('getDataTypes')->with()->andReturn($mock_data_types);
 		});
 
-
+		// テスト
 		list($categories, $data_types) = (new DataGenerateService($mock))->getInitialData();
 
+		// データ確認
 		$this->assertSame($mock_categories, $categories);
 		$this->assertSame($mock_data_types, $data_types);
 	}
