@@ -6,27 +6,9 @@
   margin: 0;
 }
 
-.todo-add{
-  &__btn {
-    text-align: center;
-    padding: 2rem;
-  }
-}
-
-.todo {
-  display: flex;
-  padding: 2rem;
-
-  &-content {
-    &__title, &__body, &__limit {
-      display: flex;
-      margin-bottom: 1rem;
-    }
-
-    &__icon {
-      margin-right: 2rem;
-    }
-  }
+.initial-loader{
+  height: 300px;
+  line-height: 300px;
 }
 
 .breadcrumbs {

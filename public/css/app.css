@@ -9277,25 +9277,9 @@ input[type=range]::-ms-thumb {
   margin: 0;
 }
 
-.todo-add__btn {
-  text-align: center;
-  padding: 2rem;
-}
-
-.todo {
-  display: flex;
-  padding: 2rem;
-}
-
-.todo-content__title,
-.todo-content__body,
-.todo-content__limit {
-  display: flex;
-  margin-bottom: 1rem;
-}
-
-.todo-content__icon {
-  margin-right: 2rem;
+.initial-loader {
+  height: 300px;
+  line-height: 300px;
 }
 
 .breadcrumbs {

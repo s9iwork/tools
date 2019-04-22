@@ -78,9 +78,20 @@ class DataGenerateService implements DataGenerateServiceInterface
 		$this->data_generate_repository = $data_generate_repository;
 	}
 
+
 	/**
-	 * @param array $params リクエストパラメータ
-	 * @return array
+	 * {@inheritdoc}
+	 */
+	public function getInitialData(): array
+	{
+		$categories = $this->data_generate_repository->getCategories();
+		$data_types = $this->data_generate_repository->getDataTypes();
+
+		return [$categories, $data_types];
+	}
+
+	/**
+	 * {@inheritdoc}
 	 */
 	public function create(array $params = []): array
 	{
