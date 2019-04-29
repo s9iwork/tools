@@ -4,7 +4,6 @@ namespace Tests\Unit\Services;
 
 use App\Services\DataGenerateService;
 use App\Repositories\DataGenerateRepository;
-use Illuminate\Support\Facades\Log;
 use Tests\TestCase;
 
 /**
@@ -117,7 +116,7 @@ class DataGenerateServiceTest extends TestCase
 	}
 
 	/**
-	 * create：住所データ生成（複数のデータから生成）
+	 * create：住所データ生成（複数のメソッド呼び出しで生成）
 	 */
 	public function test_create_04()
 	{
@@ -160,12 +159,34 @@ class DataGenerateServiceTest extends TestCase
 	}
 
 	/**
+	 * create：それ他の種別
+	 */
+	public function test_create_06()
+	{
+		// パラメータ
+		$params = [
+			'type' => 14
+		];
+
+		// テスト
+		$service = $this->app->make(DataGenerateService::class);
+		$created_items = $service->create($params);
+
+		// データ確認
+		$this->assertCount(10, $created_items);
+		foreach ($created_items as $created_item) {
+			$this->assertRegExp('/\d{1,3}.\d{1,3}.\d{1,3}/u', $created_item);
+		}
+	}
+
+	/**
 	 * 日付フォーマットをチェックする
 	 *
 	 * @param string   $date   日付文字列
 	 * @param string   $format フォーマット
 	 * @param int|null $within 日数
 	 * @return bool フォーマットが一致しているかどうか
+	 * @throws
 	 */
 	private function validateDateFormat(string $date, string $format='Y-m-d H:i:s', ?int $within=null) :bool{
 		$datetime = \DateTime::createFromFormat($format, $date);
