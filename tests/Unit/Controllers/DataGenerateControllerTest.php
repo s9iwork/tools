@@ -5,7 +5,6 @@ namespace Tests\Unit\Controllers;
 use App\Http\Controllers\DataGenerateController;
 use App\Services\DataGenerateService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 use Tests\TestCase;
 
