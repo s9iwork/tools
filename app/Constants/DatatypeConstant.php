@@ -144,12 +144,12 @@ class DatatypeConstant
 	public const TIME_ZONE = 27;
 
 	/**
-	 * @var int 日付(今年)
+	 * @var int 日付(直近1年)
 	 */
 	public const DATE_CURRENT_YEAR = 28;
 
 	/**
-	 * @var int 日付(今月)
+	 * @var int 日付(直近1か月)
 	 */
 	public const DATE_CURRENT_MONTH = 29;
 

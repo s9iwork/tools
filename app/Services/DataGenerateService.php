@@ -15,7 +15,7 @@ class DataGenerateService implements DataGenerateServiceInterface
 	/**
 	 * @var DataGenerateRepositoryInterface
 	 */
-	protected $data_generate_repository;
+	private $data_generate_repository;
 
 	/**
 	 * @var array データ種別と生成関数のマップ
@@ -65,6 +65,15 @@ class DataGenerateService implements DataGenerateServiceInterface
 	];
 
 	/**
+	 * @var array 日付データ種別の一覧
+	 */
+	private const DATE_TYPE_LIST = [
+		DatatypeConstant::DATE,
+		DatatypeConstant::DATE_CURRENT_MONTH,
+		DatatypeConstant::DATE_CURRENT_YEAR
+	];
+
+	/**
 	 * @var int データ作成数
 	 */
 	private const GENERATE_NUM = 10;
@@ -101,21 +110,16 @@ class DataGenerateService implements DataGenerateServiceInterface
 		for ($i = 0; $i < self::GENERATE_NUM; $i++) {
 			$method = self::TYPE_METHOD_MAP[$params['type']];
 
-			if (in_array($params['type'], [
-				DatatypeConstant::DATE,
-				DatatypeConstant::DATE_CURRENT_MONTH,
-				DatatypeConstant::DATE_CURRENT_YEAR
-			])) {
+			if (in_array($params['type'], self::DATE_TYPE_LIST, true)) {
 				$data = $faker->$method()->format('Y-m-d H:i:s');
-			} else {
-				if (is_array($method)) {
-					$data = '';
-					foreach ($method as $inner_method) {
-						$data .= $faker->$inner_method();
-					}
-				} else {
-					$data = $faker->$method();
+			} else if (is_array($method)) {
+				// 複数の関数を呼び出すデータ種別を考慮する
+				$data = '';
+				foreach ($method as $inner_method) {
+					$data .= $faker->$inner_method();
 				}
+			} else {
+				$data = $faker->$method();
 			}
 
 			// 配列であればvalueをカンマ区切りで返却する
