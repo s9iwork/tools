@@ -14,7 +14,7 @@ class DataGenerateController extends Controller
 	/**
 	 * @var DataGenerateServiceInterface
 	 */
-	protected $data_generate_service;
+	private $data_generate_service;
 
 	/**
 	 * DataGenerateController constructor.

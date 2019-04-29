@@ -134,35 +134,35 @@ class DdgDataTypesTableSeeder extends Seeder
 
 		DdgDataType::create([
 			'id' => DatatypeConstant::USER_AGENT_CHROME,
-			'name' => 'UserAgent(Chrome)',
+			'name' => 'UserAgent（Chrome）',
 			'category_id' => CategoryConstant::CATEGORY_WEB,
 			'sample' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/5331 (KHTML, like Gecko) Chrome/37.0.817.0 Mobile Safari/5331',
 		]);
 
 		DdgDataType::create([
 			'id' => DatatypeConstant::USER_AGENT_FIRE_FOX,
-			'name' => 'UserAgent(FireFox)',
+			'name' => 'UserAgent（Firefox）',
 			'category_id' => CategoryConstant::CATEGORY_WEB,
 			'sample' => 'Mozilla/5.0 (X11; Linux i686; rv:5.0) Gecko/20160719 Firefox/37.0',
 		]);
 
 		DdgDataType::create([
 			'id' => DatatypeConstant::USER_AGENT_SAFARI,
-			'name' => 'UserAgent(Safari)',
+			'name' => 'UserAgent（Safari）',
 			'category_id' => CategoryConstant::CATEGORY_WEB,
 			'sample' => 'Mozilla/5.0 (Windows; U; Windows NT 5.1) AppleWebKit/535.2.4 (KHTML, like Gecko) Version/5.0.5 Safari/535.2.4',
 		]);
 
 		DdgDataType::create([
 			'id' => DatatypeConstant::USER_AGENT_OPERA,
-			'name' => 'UserAgent(Opera)',
+			'name' => 'UserAgent（Opera）',
 			'category_id' => CategoryConstant::CATEGORY_WEB,
 			'sample' => 'Opera/8.22 (Windows NT 6.1; sl-SI) Presto/2.9.170 Version/12.00',
 		]);
 
 		DdgDataType::create([
 			'id' => DatatypeConstant::USER_AGENT_IE,
-			'name' => 'UserAgent(IE)',
+			'name' => 'UserAgent（IE）',
 			'category_id' => CategoryConstant::CATEGORY_WEB,
 			'sample' => 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 4.0; Trident/5.0)',
 		]);
@@ -212,14 +212,14 @@ class DdgDataTypesTableSeeder extends Seeder
 
 		DdgDataType::create([
 			'id' => DatatypeConstant::DATE_CURRENT_YEAR,
-			'name' => '日付(今年)',
+			'name' => '日付（1年以内）',
 			'category_id' => CategoryConstant::CATEGORY_TIME,
 			'sample' => '2018-05-27 12:10:15',
 		]);
 
 		DdgDataType::create([
 			'id' => DatatypeConstant::DATE_CURRENT_MONTH,
-			'name' => '日付(今月)',
+			'name' => '日付（1か月以内）',
 			'category_id' => CategoryConstant::CATEGORY_TIME,
 			'sample' => '2019-03-30 01:05:55',
 		]);
@@ -248,7 +248,7 @@ class DdgDataTypesTableSeeder extends Seeder
 
 		DdgDataType::create([
 			'id' => DatatypeConstant::COUNTRY_CODE_3DIGIT,
-			'name' => '国コード(3桁)',
+			'name' => '国コード（3桁）',
 			'category_id' => CategoryConstant::CATEGORY_OTHER,
 			'sample' => 'BRA',
 		]);
