@@ -19,7 +19,7 @@ class DataGenerateRepository implements DataGenerateRepositoryInterface
 	/**
 	 * @var DdgDataType
 	 */
-	private $ddg_data_types;
+	private $ddg_data_type;
 
 	/**
 	 * DataGenerateRepository constructor.
@@ -30,7 +30,7 @@ class DataGenerateRepository implements DataGenerateRepositoryInterface
 	public function __construct(DdgCategory $ddg_category, DdgDataType $ddg_data_type)
 	{
 		$this->ddg_category = $ddg_category;
-		$this->ddg_data_types = $ddg_data_type;
+		$this->ddg_data_type = $ddg_data_type;
 	}
 
 	/**
@@ -46,6 +46,6 @@ class DataGenerateRepository implements DataGenerateRepositoryInterface
 	 */
 	public function getDataTypes(): array
 	{
-		return $this->ddg_data_types->all()->toArray();
+		return $this->ddg_data_type->all()->toArray();
 	}
 }

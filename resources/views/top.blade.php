@@ -13,7 +13,7 @@
 					<div class="card">
 						<div class="card-image">
 							<img src="/img/ddg/main.svg">
-							<span class="card-title">ダミーデータ作る君</span>
+							<span class="card-title tool-title">ダミーデータ作る君</span>
 						</div>
 						<div class="card-content">
 							<p>名前や住所などのダミーデータを生成するツールです。</p>
