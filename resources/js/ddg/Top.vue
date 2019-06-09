@@ -80,6 +80,7 @@
 		data() {
 			return {
 				isInitialized: false,
+				isTabInitialized: false,
 				isLoading: false,
 				selectedType: 1,
 				categories: [],
@@ -92,7 +93,10 @@
 			this.loadInitialData();
 		},
 		updated() {
-			M.Tabs.init(document.querySelectorAll('.tabs'), {});
+			if(this.categories.length >= 0 && !this.isTabInitialized) {
+				M.Tabs.init(document.querySelectorAll('.tabs'), {});
+				this.isTabInitialized = true;
+			}
 		},
 		methods: {
 			loadInitialData() {
@@ -162,7 +166,7 @@
 				document.body.appendChild(temp);
 				document.getSelection().selectAllChildren(temp);
 
-				var result = document.execCommand('copy');
+				let result = document.execCommand('copy');
 				document.body.removeChild(temp);
 				console.log(copyString);
 				result ? M.toast({html: 'コピーしました'}) : M.toast({html: 'コピーに失敗しました。リロードしてお試しください'});

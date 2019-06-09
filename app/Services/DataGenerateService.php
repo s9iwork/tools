@@ -110,7 +110,7 @@ class DataGenerateService implements DataGenerateServiceInterface
 		for ($i = 0; $i < self::GENERATE_NUM; $i++) {
 			$method = self::TYPE_METHOD_MAP[$params['type']];
 
-			if (in_array($params['type'], self::DATE_TYPE_LIST, true)) {
+			if (in_array($params['type'], self::DATE_TYPE_LIST)) {
 				$data = $faker->$method()->format('Y-m-d H:i:s');
 			} else if (is_array($method)) {
 				// 複数の関数を呼び出すデータ種別を考慮する
