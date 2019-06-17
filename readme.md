@@ -63,9 +63,9 @@ Webarena VPSクラウド（月額400円）
     php artisan key:generate
 
     // cacheフォルダ作成
-    mkdir -p /storage/framework/cache
-    mkdir -p /storage/framework/sessions
-    mkdir -p /storage/framework/views
+    mkdir -p storage/framework/cache
+    mkdir -p storage/framework/sessions
+    mkdir -p storage/framework/views
     ```
 
 4. マイグレーション、初期データ投入
