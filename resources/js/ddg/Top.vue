@@ -100,7 +100,7 @@
 		},
 		methods: {
 			loadInitialData() {
-				axios.get('/api/initial_data', {
+				axios.get('/api/ddg/initial_data', {
 					params: {}
 				}).then(res => {
 					this.categories = res.data.categories;
@@ -127,7 +127,7 @@
 			create() {
 				this.createdItems = [];
 				this.isLoading = true;
-				axios.get('/api/create', {
+				axios.get('/api/ddg/create', {
 					params: {
 						type: this.selectedType
 					}

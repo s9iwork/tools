@@ -16,5 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/initial_data', 'DataGenerateController@getInitialData');
-Route::get('/create', 'DataGenerateController@create');
+
+Route::namespace('Ddg')->group(function(){
+	Route::get('ddg/initial_data', 'DataGenerateController@getInitialData');
+	Route::get('ddg/create', 'DataGenerateController@create');
+});

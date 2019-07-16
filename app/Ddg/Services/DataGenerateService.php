@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Services;
+namespace App\Ddg\Services;
 
 use Faker\Factory;
-use App\Repositories\DataGenerateRepositoryInterface;
-use App\Constants\DatatypeConstant;
+use App\Ddg\Repositories\DataGenerateRepositoryInterface;
+use App\Ddg\Constants\DatatypeConstant;
 
 /**
  * Class DataGenerateService
