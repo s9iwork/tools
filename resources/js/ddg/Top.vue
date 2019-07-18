@@ -1,5 +1,5 @@
 <template>
-	<main class="container">
+	<main class="content container">
 		<div class="row" v-if="!isInitialized">
 			<div class="col s12 center-align initial-loader">
 				<loader></loader>
@@ -93,7 +93,7 @@
 			this.loadInitialData();
 		},
 		updated() {
-			if(this.categories.length >= 0 && !this.isTabInitialized) {
+			if(!this.isTabInitialized) {
 				M.Tabs.init(document.querySelectorAll('.tabs'), {});
 				this.isTabInitialized = true;
 			}
@@ -170,7 +170,6 @@
 				document.body.removeChild(temp);
 				console.log(copyString);
 				result ? M.toast({html: 'コピーしました'}) : M.toast({html: 'コピーに失敗しました。リロードしてお試しください'});
-
 			}
 		}
 	}

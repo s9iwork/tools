@@ -6,7 +6,7 @@
 @section('keywords', 'Webツール')
 
 @section('content')
-	<main class="container">
+	<main class="content container">
 		<div class="row">
 			<div class="col s12 m6">
 				<div class="card-wrapper">
