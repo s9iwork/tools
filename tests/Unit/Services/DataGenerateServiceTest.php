@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\Services;
 
-use App\Services\DataGenerateService;
-use App\Repositories\DataGenerateRepository;
+use App\Ddg\Services\DataGenerateService;
+use App\Ddg\Repositories\DataGenerateRepository;
 use Tests\TestCase;
 
 /**
