@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Ddg\Services;
 
 /**
  * Interface DataGenerateServiceInterface
@@ -11,7 +11,6 @@ interface DataGenerateServiceInterface
 	/**
 	 * カテゴリー、データ種別などの初期データを取得する
 	 *
-	 * @param array $params リクエストパラメータ
 	 * @return array
 	 */
 	public function getInitialData(): array;

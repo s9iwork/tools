@@ -1,5 +1,5 @@
 <template>
-	<main class="container">
+	<main class="content container">
 		<div class="row" v-if="!isInitialized">
 			<div class="col s12 center-align initial-loader">
 				<loader></loader>
@@ -93,14 +93,14 @@
 			this.loadInitialData();
 		},
 		updated() {
-			if(this.categories.length >= 0 && !this.isTabInitialized) {
+			if(!this.isTabInitialized) {
 				M.Tabs.init(document.querySelectorAll('.tabs'), {});
 				this.isTabInitialized = true;
 			}
 		},
 		methods: {
 			loadInitialData() {
-				axios.get('/api/initial_data', {
+				axios.get('/api/ddg/initial_data', {
 					params: {}
 				}).then(res => {
 					this.categories = res.data.categories;
@@ -127,7 +127,7 @@
 			create() {
 				this.createdItems = [];
 				this.isLoading = true;
-				axios.get('/api/create', {
+				axios.get('/api/ddg/create', {
 					params: {
 						type: this.selectedType
 					}
@@ -170,7 +170,6 @@
 				document.body.removeChild(temp);
 				console.log(copyString);
 				result ? M.toast({html: 'コピーしました'}) : M.toast({html: 'コピーに失敗しました。リロードしてお試しください'});
-
 			}
 		}
 	}

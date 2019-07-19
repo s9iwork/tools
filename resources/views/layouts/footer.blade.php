@@ -1,7 +1,7 @@
 @section('footer')
-	<footer class="page-footer">
-		<div class="footer container">
-			<div class="footer__wrap">
+	<footer id="footer" class="footer">
+		<div class="footer-container container">
+			<div class="footer-inner">
 				<div class="footer__copyright">&copy; 2019 <a href="https://s9i.work" class="footer__copyright-link">s9i</a></div>
 				<div>
 					<ul class="footer__sns-list">

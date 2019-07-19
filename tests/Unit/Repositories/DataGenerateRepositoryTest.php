@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Repositories;
 
-use App\Repositories\DataGenerateRepository;
+use App\Ddg\Repositories\DataGenerateRepository;
 use Tests\TestCase;
 
 /**

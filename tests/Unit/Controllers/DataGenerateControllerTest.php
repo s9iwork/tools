@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\Controllers;
 
-use App\Http\Controllers\DataGenerateController;
-use App\Services\DataGenerateService;
+use App\Http\Controllers\Ddg\DataGenerateController;
+use App\Ddg\Services\DataGenerateService;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Tests\TestCase;

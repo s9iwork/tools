@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Constants;
+namespace App\Ddg\Constants;
 
 /**
  * カテゴリー定数クラス

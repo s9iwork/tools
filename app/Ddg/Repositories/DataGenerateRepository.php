@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Ddg\Repositories;
 
-use App\DdgCategory;
-use App\DdgDataType;
+use App\Ddg\Models\DdgCategory;
+use App\Ddg\Models\DdgDataType;
 
 /**
  * Class DataGenerateRepository
