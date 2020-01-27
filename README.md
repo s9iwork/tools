@@ -1,9 +1,9 @@
 <p align="center">
-	<img src="https://tools.s9i.work/img/main.svg" width="100%" height="100px">
+	<img src="https://tools.shinjiezumi.work/img/main.svg" width="100%" height="100px">
 </p>
 
 # URL
-https://tools.s9i.work
+https://tools.shinjiezumi.work
 
 # このWebアプリについて
 Web開発の中で用途がありそうなツールを自作して公開していきます。
@@ -15,7 +15,6 @@ Web開発の中で用途がありそうなツールを自作して公開して�
 テスト用のダミーデータを作成するツールです。
 様々な種類のダミーデータを作成することが出来ます。
 
-
 # 使用技術
 ## フロントエンド
 - Vue.js
@@ -24,7 +23,7 @@ Web開発の中で用途がありそうなツールを自作して公開して�
 
 ## バックエンド
 - PHP 7.2
-- Laravel
+- Laravel 5.8
 - MySQL 5.7
 
 ## ミドルウェア
@@ -35,16 +34,16 @@ Web開発の中で用途がありそうなツールを自作して公開して�
 docker(docker-compose)
 
 ## 本番環境
-Webarena VPSクラウド（月額400円）
+Webarena VPSクラウド
 
 # 環境構築
 1. ソースコードクローン
 
     ```
-    https://github.com/s9iwork/tools.git
+    git clone https://github.com/s9iwork/tools.git
     ```
 
-1. composerインストール
+2. composerインストール
 
     ```
     cd path/to/APP_ROOT
@@ -74,7 +73,7 @@ Webarena VPSクラウド（月額400円）
     php artisan migrate --seed
     ```
 
-5. npmインストール
+5. node_modulesインストール
 
     ```
     npm install
