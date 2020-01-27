@@ -2,16 +2,13 @@
 	<footer id="footer" class="footer">
 		<div class="footer-container container">
 			<div class="footer-inner">
-				<div class="footer__copyright">&copy; 2019 <a href="https://s9i.work" class="footer__copyright-link">s9i</a></div>
+				<div class="footer__copyright">&copy; 2019
+					<a href="https://shinjiezumi.work" class="footer__copyright-link" target="_blank">shinjiezumi</a>
+				</div>
 				<div>
 					<ul class="footer__sns-list">
 						<li class="footer__sns-list-item">
-							<a href="https://twitter.com/s9iwork" target="_blank">
-								<i class="fab fa-twitter footer__sns-icon"></i>
-							</a>
-						</li>
-						<li class="footer__sns-list-item">
-							<a href="https://github.com/s9iwork" target="_blank">
+							<a href="https://github.com/shinjiezumi/tools" target="_blank">
 								<i class="fab fa-github footer__sns-icon"></i>
 							</a>
 						</li>
