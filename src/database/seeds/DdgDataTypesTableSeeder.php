@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Database\Seeder;
+use App\Ddg\Constants\CategoryConstant;
+use App\Ddg\Constants\DatatypeConstant;
+use App\Ddg\Models\DdgDataType;
 use Illuminate\Database\Eloquent\Model;
-use App\DdgDataType;
-use App\Constants\DatatypeConstant;
-use App\Constants\CategoryConstant;
+use Illuminate\Database\Seeder;
 
 class DdgDataTypesTableSeeder extends Seeder
 {
