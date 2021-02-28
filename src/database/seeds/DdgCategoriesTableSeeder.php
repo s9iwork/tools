@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Database\Seeder;
+use App\Ddg\Constants\CategoryConstant;
+use App\Ddg\Models\DdgCategory;
 use Illuminate\Database\Eloquent\Model;
-use App\DdgCategory;
-use App\Constants\CategoryConstant;
+use Illuminate\Database\Seeder;
 
 class DdgCategoriesTableSeeder extends Seeder
 {
