@@ -15,7 +15,7 @@ RUN pecl install xdebug \
 RUN apt-get install -y --no-install-recommends supervisor
 
 # Nodejs
-RUN curl -sL https://deb.nodesource.com/setup_11.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN apt-get install -y --no-install-recommends nodejs
 
 COPY ./docker/php/supervisor/* /etc/supervisor/conf.d/

@@ -1,3 +1,4 @@
+import Vue from "vue";
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -10,7 +11,6 @@ require('./bootstrap');
 require('./common');
 require('./ddg/app');
 
-window.Vue = require('vue');
 
 /**
  * The following block of code may be used to automatically register your
@@ -30,5 +30,5 @@ window.Vue = require('vue');
  */
 
 const app = new Vue({
-    el: '#app'
+	el: '#app'
 });
