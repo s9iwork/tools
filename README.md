@@ -22,61 +22,40 @@ Web開発の中で用途がありそうなツールを自作して公開して�
 - Sass(Scss)
 
 ## バックエンド
-- PHP 7.2
+- PHP 7.3
 - Laravel 5.8
 - MySQL 5.7
 
 ## ミドルウェア
+
 - Nginx
 - PHP-FPM
 
 ## 開発環境
+
 docker(docker-compose)
 
 ## 本番環境
+
 Webarena VPSクラウド
 
 # 環境構築
-1. ソースコードクローン
+
+1. クローン
 
     ```
-    git clone https://github.com/s9iwork/tools.git
+    git clone https://github.com/shinjiezumi/tools.git
     ```
 
-2. composerインストール
+2. イメージビルド、コンテナ起動
 
     ```
-    cd path/to/APP_ROOT
-    composer install
+    docker-compose up -d
     ```
 
-3. envファイル、cacheフォルダ作成
+3. 初期化
 
     ```
-    cp .env.sample .env
-
-    // DB情報などを記載
-    vi .env
-
-    // 暗号化キー生成
-    php artisan key:generate
-
-    // cacheフォルダ作成
-    mkdir -p storage/framework/cache
-    mkdir -p storage/framework/sessions
-    mkdir -p storage/framework/views
+    docker-compose exec app bash
+    bash script/init.sh
     ```
-
-4. マイグレーション、初期データ投入
-
-    ```
-    php artisan migrate --seed
-    ```
-
-5. node_modulesインストール
-
-    ```
-    npm install
-    npm run dev
-    ```
-
