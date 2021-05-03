@@ -2,7 +2,7 @@
 	<footer id="footer" class="footer">
 		<div class="footer-container container">
 			<div class="footer-inner">
-				<div class="footer__copyright">&copy; 2019
+				<div class="footer__copyright">&copy; {{ date('Y') }}
 					<a href="https://shinjiezumi.work" class="footer__copyright-link" target="_blank">shinjiezumi</a>
 				</div>
 				<div>
