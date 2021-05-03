@@ -1,29 +1,35 @@
 <p align="center">
-	<img src="https://tools.shinjiezumi.work/img/main.svg" width="100%" height="100px">
+	<img src="https://tools.shinjiezumi.work/img/main.svg" width="100%" height="100px" alt="image">
 </p>
 
 # URL
+
 https://tools.shinjiezumi.work
 
 # このWebアプリについて
+
 Web開発の中で用途がありそうなツールを自作して公開していきます。
 
 ## ツール一覧
+
 - ダミーデータ作る君
 
 ## ダミーデータ作る君
-テスト用のダミーデータを作成するツールです。
-様々な種類のダミーデータを作成することが出来ます。
+
+テスト用のダミーデータを作成するツールです。 様々な種類のダミーデータを作成することが出来ます。s
 
 # 使用技術
+
 ## フロントエンド
+
 - Vue.js
 - Materialize CSS FW
 - Sass(Scss)
 
 ## バックエンド
+
 - PHP 7.3
-- Laravel 5.8
+- Laravel 6
 - MySQL 5.7
 
 ## ミドルウェア
