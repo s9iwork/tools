@@ -38,6 +38,22 @@ task('change_cwd', function () {
 
 after('deploy:update_code', 'change_cwd');
 
+task('npm:run', function (): void {
+	run('cd {{release_path}} && npm install');
+
+	if (input()->getArgument('stage') === 'production') {
+		run('cd {{release_path}} && npm run prod');
+	} else {
+		run('cd {{release_path}} && npm run dev');
+	}
+});
+
+task('php:run', function (): void {
+	run('cd {{release_path}} && composer dump-autoload');
+});
+
+after('deploy:shared', 'npm:run'); // deploy:sharedの後にTaskを実行
+after('deploy:vendors', 'php:run'); // deploy:vendorsの後にTaskを実行
 
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
