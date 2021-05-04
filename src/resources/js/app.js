@@ -6,7 +6,6 @@ import Vue from "vue";
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./materialize');
 require('./bootstrap');
 require('./common');
 require('./ddg/app');
