@@ -1,0 +1,92 @@
+name: Laravel
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    container: circleci/php:7.3-fpm-node-browsers
+
+    env:
+      APP_ENV: testing
+      DB_CONNECTION: mysql
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_DATABASE: tools
+      DB_USERNAME: root
+      DB_PASSWORD: pass
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_DATABASE: tools
+          MYSQL_ROOT_PASSWORD: pass
+        ports:
+          - 3306:3306
+
+    steps:
+      # checkout
+      - name: Setup file system permissions
+        run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
+      - uses: actions/checkout@v2
+
+      # os package install
+      - name: install packages
+        run: |
+          sudo apt update
+          sudo docker-php-ext-install zip pdo_mysql
+          sudo apt-get install default-mysql-client
+
+      # Setup app
+      - name: Copy .env
+        working-directory: ./src
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+      - name: Install Dependencies
+        working-directory: ./src
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      - name: Generate key
+        working-directory: ./src
+        run: php artisan key:generate
+      - name: Make directories
+        working-directory: ./src
+        run: |
+          mkdir -p storage/framework/cache/data
+          mkdir -p storage/framework/sessions
+          mkdir -p storage/framework/views
+      - name: Directory Permissions
+        working-directory: ./src
+        run: chmod -R 777 storage bootstrap/cache
+
+      # php/node modules install
+      - name: Cache php modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-php-modules
+        with:
+          path: ./src/vendor
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('./src/composer.lock') }}
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ./src/node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('./src/package-lock.json') }}
+
+      # setup database
+      - name: setup database
+        working-directory: ./src
+        run: |
+          php artisan migrate
+          php artisan db:seed
+
+      # run test
+      - name: run test
+        working-directory: ./src
+        run: ./vendor/bin/phpunit
