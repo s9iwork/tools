@@ -100,7 +100,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup SSH for production
-        run: mkdir -p ~/.ssh && echo "${{secrets.SSH_KEY}}" > ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+          echo "${{secrets.SSH_KEY}}" > ~/.ssh/github_ssh_key
+          chmod 0600 ~/.ssh/github_ssh_key
       - name: Setup Deployer
         working-directory: ./src
         run: curl -LO https://deployer.org/deployer.phar && mv deployer.phar ./dep  && chmod +x ./dep
