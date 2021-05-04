@@ -99,12 +99,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: add SSH key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.SSH_KEY }}
-          name: github_ssh_key
-          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+      - name: Setup SSH for production
+        run: mkdir -p ~/.ssh && echo "${{secrets.PRODUCTION_KEY}}" > ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa
       - name: Setup Deployer
         working-directory: ./src
         run: curl -LO https://deployer.org/deployer.phar && mv deployer.phar ./dep  && chmod +x ./dep
