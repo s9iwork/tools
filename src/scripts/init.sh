@@ -3,7 +3,7 @@ php composer.phar install
 cp .env.example .env
 php artisan key:generate
 
-mkdir -p storage/framework/cache
+mkdir -p storage/framework/cache/data
 mkdir -p storage/framework/sessions
 mkdir -p storage/framework/views
 
