@@ -37,6 +37,11 @@ Web開発の中で用途がありそうなツールを自作して公開して�
 - Nginx
 - PHP-FPM
 
+## CI/CD
+
+- GitHub Actions
+- Deployer
+
 ## 開発環境
 
 docker(docker-compose)
