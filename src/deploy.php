@@ -49,6 +49,7 @@ task('npm:run', function (): void {
 });
 
 task('php:run', function (): void {
+	run('cd {{release_path}} && composer install');
 	run('cd {{release_path}} && composer dump-autoload');
 });
 
