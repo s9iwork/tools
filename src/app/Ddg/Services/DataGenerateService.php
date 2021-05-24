@@ -2,9 +2,9 @@
 
 namespace App\Ddg\Services;
 
-use Faker\Factory;
-use App\Ddg\Repositories\DataGenerateRepositoryInterface;
 use App\Ddg\Constants\DatatypeConstant;
+use App\Ddg\Repositories\DataGenerateRepositoryInterface;
+use Faker\Factory;
 
 /**
  * Class DataGenerateService
@@ -42,6 +42,7 @@ class DataGenerateService implements DataGenerateServiceInterface
 		DatatypeConstant::IPV6 => 'IPv6',
 		DatatypeConstant::USER_AGENT => 'userAgent',
 		DatatypeConstant::USER_AGENT_CHROME => 'chrome',
+		DatatypeConstant::USER_AGENT_FIRE_FOX => 'Firefox',
 		DatatypeConstant::USER_AGENT_SAFARI => 'Safari',
 		DatatypeConstant::USER_AGENT_OPERA => 'opera',
 		DatatypeConstant::USER_AGENT_IE => 'internetExplorer',
