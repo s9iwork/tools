@@ -32,10 +32,10 @@
 						<div v-for="type in types[category.id]">
 							<label>
 								<input class="with-gap type"
-									   type="radio"
-									   name="type"
-									   v-bind:value="type.id"
-									   v-model="selectedType"/>
+											 type="radio"
+											 name="type"
+											 v-bind:value="type.id"
+											 v-model="selectedType"/>
 								<span>{{ type.name }}</span>
 							</label>
 						</div>
@@ -76,101 +76,101 @@
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				isInitialized: false,
-				isTabInitialized: false,
-				isLoading: false,
-				selectedType: 1,
-				categories: [],
-				types: [],
-				samples: [],
-				createdItems: []
-			}
-		},
-		mounted() {
-			this.loadInitialData();
-		},
-		updated() {
-			if(!this.isTabInitialized) {
-				M.Tabs.init(document.querySelectorAll('.tabs'), {});
-				this.isTabInitialized = true;
-			}
-		},
-		methods: {
-			loadInitialData() {
-				axios.get('/api/ddg/initial_data', {
-					params: {}
-				}).then(res => {
-					this.categories = res.data.categories;
+export default {
+	data() {
+		return {
+			isInitialized: false,
+			isTabInitialized: false,
+			isLoading: false,
+			selectedType: 1,
+			categories: [],
+			types: [],
+			samples: [],
+			createdItems: []
+		}
+	},
+	mounted() {
+		this.loadInitialData();
+	},
+	updated() {
+		if (!this.isTabInitialized) {
+			M.Tabs.init(document.querySelectorAll('.tabs'), {});
+			this.isTabInitialized = true;
+		}
+	},
+	methods: {
+		loadInitialData() {
+			axios.get('/api/ddg/initial_data', {
+				params: {}
+			}).then(res => {
+				this.categories = res.data.categories;
 
-					// 種別とサンプルを整形する
-					let types = [];
-					let samples = {};
-					res.data.data_types.forEach((val, index) => {
-						if(types[val.category_id] === undefined)
-							types[val.category_id] = [];
-						types[val.category_id].push(val);
+				// 種別とサンプルを整形する
+				let types = [];
+				let samples = {};
+				res.data.data_types.forEach((val) => {
+					if (types[val.category_id] === undefined)
+						types[val.category_id] = [];
+					types[val.category_id].push(val);
 
-						samples[val.id] = val.sample;
-					});
-					this.types = types;
-					this.samples = samples;
-					this.isInitialized = true;
-
-				}).catch(error => {
-					alert('エラーが発生しました');
-					console.log(error);
+					samples[val.id] = val.sample;
 				});
-			},
-			create() {
-				this.createdItems = [];
-				this.isLoading = true;
-				axios.get('/api/ddg/create', {
-					params: {
-						type: this.selectedType
-					}
-				}).then(res => {
-					this.createdItems = res.data.items;
-				}).catch(error => {
-					alert('エラーが発生しました');
-					console.log(error);
-				}).finally(() => {
-					this.isLoading = false;
-				});
-			},
-			changeTab(event) {
-				this.createdItems = [];
+				this.types = types;
+				this.samples = samples;
+				this.isInitialized = true;
 
-				let categoryId = event.target.getAttribute('data-category-id');
-				let target = document.querySelector('#category-' + categoryId + ' .type');
-				target.checked = true;
-				this.selectedType = target.value;
-			},
-			copy() {
-				let copyString = "";
-				let createdItems = document.getElementsByClassName('created-item');
-				for (let item of createdItems) {
-					copyString += (item.innerText + "\n");
+			}).catch(error => {
+				alert('エラーが発生しました');
+				console.log(error);
+			});
+		},
+		create() {
+			this.createdItems = [];
+			this.isLoading = true;
+			axios.get('/api/ddg/create', {
+				params: {
+					type: this.selectedType
 				}
+			}).then(res => {
+				this.createdItems = res.data.items;
+			}).catch(error => {
+				alert('エラーが発生しました');
+				console.log(error);
+			}).finally(() => {
+				this.isLoading = false;
+			});
+		},
+		changeTab(event) {
+			this.createdItems = [];
 
-				// クリップボードにコピー
-				let temp = document.createElement('div');
-				temp.appendChild(document.createElement('pre')).textContent = copyString;
-
-				// 画面外に固定
-				let style = temp.style;
-				style.position = 'fixed';
-				style.left = '-100%';
-				document.body.appendChild(temp);
-				document.getSelection().selectAllChildren(temp);
-
-				let result = document.execCommand('copy');
-				document.body.removeChild(temp);
-				console.log(copyString);
-				result ? M.toast({html: 'コピーしました'}) : M.toast({html: 'コピーに失敗しました。リロードしてお試しください'});
+			let categoryId = event.target.getAttribute('data-category-id');
+			let target = document.querySelector('#category-' + categoryId + ' .type');
+			target.checked = true;
+			this.selectedType = target.value;
+		},
+		copy() {
+			let copyString = "";
+			let createdItems = document.getElementsByClassName('created-item');
+			for (let item of createdItems) {
+				copyString += (item.innerText + "\n");
 			}
+
+			// クリップボードにコピー
+			let temp = document.createElement('div');
+			temp.appendChild(document.createElement('pre')).textContent = copyString;
+
+			// 画面外に固定
+			let style = temp.style;
+			style.position = 'fixed';
+			style.left = '-100%';
+			document.body.appendChild(temp);
+			document.getSelection().selectAllChildren(temp);
+
+			let result = document.execCommand('copy');
+			document.body.removeChild(temp);
+			console.log(copyString);
+			result ? M.toast({html: 'コピーしました'}) : M.toast({html: 'コピーに失敗しました。リロードしてお試しください'});
 		}
 	}
+}
 </script>
