@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import router from './router';
-import App from "./App.vue"
+import App from './App.vue';
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -8,10 +8,9 @@ import App from "./App.vue"
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-// require('./bootstrap');
-// require('./common');
+require('./bootstrap');
+require('./common');
 // require('./ddg/app');
-
 
 /**
  * The following block of code may be used to automatically register your
@@ -31,7 +30,7 @@ import App from "./App.vue"
  */
 
 new Vue({
-	el: '#app',
-	router,
-	render: h => h(App)
+  el: '#app',
+  router,
+  render: (h) => h(App),
 }).$mount('#app');
