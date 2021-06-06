@@ -2,9 +2,5 @@
 
 use Illuminate\Support\Facades\Route;
 
-//Route::get('/', 'TopController@getTop')->name('top');
-
-Route::get('/{any?}', function () {
-	return view('index');
-})->where('any', '.+');
+Route::get('/{any?}', "AppController@index")->where('any', '.+');
 
