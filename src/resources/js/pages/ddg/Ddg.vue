@@ -161,9 +161,8 @@ export default {
     },
     copy() {
       let copyString = '';
-      const createdItems = document.getElementsByClassName('created-item');
-      createdItems.forEach((item) => {
-        copyString += (`${item.innerText}\n`);
+      this.createdItems.forEach((item) => {
+        copyString += (`${item}\n`);
       });
 
       // クリップボードにコピー
