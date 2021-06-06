@@ -67,7 +67,7 @@
         <div class="row" v-if="createdItems.length > 0">
           <div class="col s12">
             <h2 class="content__h2">結果</h2>
-            <div class="created-item" v-for="item in createdItems" :key="'result' + item.id">
+            <div class="created-item" v-for="(item, index) in createdItems" :key="index + item">
               {{ item }}
             </div>
           </div>

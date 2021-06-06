@@ -14,7 +14,7 @@
                 <p>名前や住所などのダミーデータを生成するツールです。</p>
               </div>
               <div class="card-action">
-                <a href="/ddg">View</a>
+                <router-link to="/ddg">View</router-link>
               </div>
             </div>
           </div>
@@ -53,5 +53,4 @@ export default {
   display: flex;
   justify-content: center;
 }
-
 </style>

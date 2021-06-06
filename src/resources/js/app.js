@@ -10,7 +10,6 @@ import App from './App.vue';
 
 require('./bootstrap');
 require('./common');
-// require('./ddg/app');
 
 /**
  * The following block of code may be used to automatically register your
