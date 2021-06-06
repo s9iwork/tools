@@ -4,7 +4,7 @@ services:
   web:
     build: docker/nginx
     ports:
-      - 8000:80
+      - 80:80
     depends_on:
       - app
     volumes:
@@ -16,6 +16,9 @@ services:
     build:
       context: .
       dockerfile: docker/php/Dockerfile
+    ports:
+      - 3000:3000
+      - 3001:3001
     depends_on:
       - db
     volumes:

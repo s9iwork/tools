@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\Controllers;
 
-use App\Http\Controllers\Ddg\DataGenerateController;
 use App\Ddg\Services\DataGenerateService;
+use App\Http\Controllers\Ddg\DataGenerateController;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Tests\TestCase;
@@ -15,21 +15,6 @@ use Tests\TestCase;
  */
 class DataGenerateControllerTest extends TestCase
 {
-	/**
-	 * index：正常系
-	 */
-	public function test_index_01()
-	{
-		// モックの設定
-
-		// テスト
-		$controller = $this->app->make(DataGenerateController::class);
-		$response = $controller->index();
-
-		// データ確認
-		$this->assertNotNull($response);
-	}
-
 	/**
 	 * getInitialData：正常系
 	 */

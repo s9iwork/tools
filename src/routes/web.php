@@ -1,5 +1,10 @@
 <?php
 
-Route::get('/', 'TopController@getTop')->name('top');
+use Illuminate\Support\Facades\Route;
 
-Route::get('/ddg', 'Ddg\DataGenerateController@index')->name('ddg');
+//Route::get('/', 'TopController@getTop')->name('top');
+
+Route::get('/{any?}', function () {
+	return view('index');
+})->where('any', '.+');
+
