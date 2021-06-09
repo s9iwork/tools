@@ -84,9 +84,9 @@
 <script>
 import axios from 'axios';
 import M from 'materialize-css';
-import Loader from '../../components/Loader';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+import Loader from '../components/Loader';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default {
   components: { Loader, Header, Footer },
