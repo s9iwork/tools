@@ -33,8 +33,10 @@
 		"vue-template-compiler": "^2.6.12"
 	},
 	"dependencies": {
+		"chart.js": "^3.3.2",
 		"material-design-icons": "^3.0.1",
 		"materialize-css": "^1.0.0-rc.2",
+		"vue-chartjs": "^3.5.1",
 		"webpack": "^5.36.2"
 	}
 }
