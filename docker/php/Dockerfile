@@ -11,6 +11,7 @@ RUN apt-get install -y --no-install-recommends supervisor
 
 # Nodejs
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
-RUN apt-get install -y --no-install-recommends nodejs
+RUN apt-get install -y --no-install-recommends nodejs && \
+    npm install -g npm
 
 COPY ./docker/php/supervisor/* /etc/supervisor/conf.d/
