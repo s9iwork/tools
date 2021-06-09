@@ -7,8 +7,8 @@
           <div class="card-wrapper">
             <div class="card">
               <div class="card-image">
-                <img src="/img/ddg/main.svg" alt="ダミーデータ作る君">
-                <span class="card-title toolTitle">ダミーデータ作る君</span>
+                <img src="/img/ddg/main.svg" alt="ダミーデータジェネレーター">
+                <span class="card-title toolTitle">ダミーデータジェネレーター</span>
               </div>
               <div class="card-content">
                 <p>名前や住所などのダミーデータを生成するツールです。</p>

@@ -20,7 +20,7 @@ const routes = [
     path: '/ddg',
     component: Ddg,
     meta: {
-      title: 'ダミーデータ作る君｜Webツール',
+      title: 'ダミーデータジェネレーター｜Webツール',
       description: '様々なテストデータ、ダミーデータを作成するツールです。',
       favicon: './img/ddg/favicon.png',
     },
