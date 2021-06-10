@@ -5,6 +5,7 @@ namespace App\Ddg\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 
 /**
@@ -32,11 +33,11 @@ class DdgCategory extends Model
 	 */
 	protected $guarded = ['id'];
 
-	/**
-	 * データ種別を取得する
-	 *
-	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
-	 */
+    /**
+     * データ種別を取得する
+     *
+     * @return HasMany
+     */
 	public function dataTypes()
 	{
 		return $this->hasMany(DdgDataType::class, 'category_id');
