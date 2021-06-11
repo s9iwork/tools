@@ -86,6 +86,10 @@ jobs:
           php artisan migrate
           php artisan db:seed
 
+      # ssh for debug
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+
       # run test
       - name: run test
         working-directory: ./src
