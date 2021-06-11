@@ -2,5 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/{any?}', "AppController@index")->where('any', '.*');
+// FIXME Github Actions上ではこけるので確認する
+//Route::get('/{any?}', "AppController@index")->where('any', '.*');
+
+Route::get('/', "AppController@index");
+Route::get('/ddg', "AppController@index");
 
