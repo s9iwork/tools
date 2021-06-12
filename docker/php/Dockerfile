@@ -1,11 +1,6 @@
 FROM php:7.3-fpm
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    git \
-    zip \
-    unzip \
-    iputils-ping \
-    vim
+RUN apt-get update
 
 # PHP
 RUN apt-get install -y libonig-dev libpq-dev zlib1g-dev libzip-dev \
