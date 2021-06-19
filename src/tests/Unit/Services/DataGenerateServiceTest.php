@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\Services;
 
-use App\Ddg\Services\DataGenerateService;
 use App\Ddg\Repositories\DataGenerateRepository;
+use App\Ddg\Services\DataGenerateService;
 use Tests\TestCase;
 
 /**
@@ -13,187 +13,189 @@ use Tests\TestCase;
  */
 class DataGenerateServiceTest extends TestCase
 {
-	/**
-	 * @var string 日付フォーマット
-	 */
-	private const DATE_FORMAT = 'Y-m-d H:i:s';
+    /**
+     * @var string 日付フォーマット
+     */
+    private const DATE_FORMAT = 'Y-m-d H:i:s';
 
-	/**
-	 * getInitialData：正常系
-	 */
-	public function test_getInitialData_01()
-	{
-		// モックの設定
-		$mock_categories = [
-			[
-				'id' => 1,
-				'name' => 'hoge',
-			]
-		];
-		$mock_data_types = [
-			[
-				'id' => 1,
-				'category_id' => 1,
-				'name' => 'fuga',
-			]
-		];
-		$mock = $this->mock(DataGenerateRepository::class, function ($mock) use ($mock_categories, $mock_data_types) {
-			$mock->shouldReceive('getCategories')->with()->andReturn($mock_categories);
-			$mock->shouldReceive('getDataTypes')->with()->andReturn($mock_data_types);
-		});
-		$this->app->instance(DataGenerateRepository::class, $mock);
+    /**
+     * getInitialData：正常系
+     */
+    public function test_getInitialData_01()
+    {
+        // モックの設定
+        $mock_categories = [
+            [
+                'id' => 1,
+                'name' => 'hoge',
+            ]
+        ];
+        $mock_data_types = [
+            [
+                'id' => 1,
+                'category_id' => 1,
+                'name' => 'fuga',
+            ]
+        ];
+        $mock = $this->mock(DataGenerateRepository::class, function ($mock) use ($mock_categories, $mock_data_types) {
+            $mock->shouldReceive('getCategories')->with()->andReturn($mock_categories);
+            $mock->shouldReceive('getDataTypes')->with()->andReturn($mock_data_types);
+        });
+        $this->app->instance(DataGenerateRepository::class, $mock);
 
-		// テスト
-		$service = $this->app->make(DataGenerateService::class);
-		list($categories, $data_types) = $service->getInitialData();
+        // テスト
+        $service = $this->app->make(DataGenerateService::class);
+        list($categories, $data_types) = $service->getInitialData();
 
-		// データ確認
-		$this->assertSame($mock_categories, $categories);
-		$this->assertSame($mock_data_types, $data_types);
-	}
+        // データ確認
+        $this->assertSame($mock_categories, $categories);
+        $this->assertSame($mock_data_types, $data_types);
+    }
 
-	/**
-	 * create：日付データ生成
-	 */
-	public function test_create_01()
-	{
-		// パラメータ
-		$params = [
-			'type' => 30
-		];
+    /**
+     * create：日付データ生成
+     */
+    public function test_create_01()
+    {
+        // パラメータ
+        $params = [
+            'type' => 30
+        ];
 
-		// テスト
-		$service = $this->app->make(DataGenerateService::class);
-		$created_items = $service->create($params);
+        // テスト
+        $service = $this->app->make(DataGenerateService::class);
+        $created_items = $service->create($params);
 
-		// データ確認
-		$this->assertCount(10, $created_items);
-		foreach ($created_items as $created_item) {
-			$this->assertTrue($this->validateDateFormat($created_item, self::DATE_FORMAT));
-		}
-	}
+        // データ確認
+        $this->assertCount(10, $created_items);
+        foreach ($created_items as $created_item) {
+            $this->assertTrue($this->validateDateFormat($created_item, self::DATE_FORMAT));
+        }
+    }
 
-	/**
-	 * create：日付（直近1か月）データ生成
-	 */
-	public function test_create_02()
-	{
-		// パラメータ
-		$params = [
-			'type' => 29
-		];
+    /**
+     * create：日付（直近1か月）データ生成
+     */
+    public function test_create_02()
+    {
+        // パラメータ
+        $params = [
+            'type' => 29
+        ];
 
-		// テスト
-		$service = $this->app->make(DataGenerateService::class);
-		$created_items = $service->create($params);
+        // テスト
+        $service = $this->app->make(DataGenerateService::class);
+        $created_items = $service->create($params);
 
-		// データ確認
-		$this->assertCount(10, $created_items);
-		foreach ($created_items as $created_item) {
-			$this->assertTrue($this->validateDateFormat($created_item, self::DATE_FORMAT, 31));
-		}
-	}
+        // データ確認
+        $this->assertCount(10, $created_items);
+        foreach ($created_items as $created_item) {
+            $this->assertTrue($this->validateDateFormat($created_item, self::DATE_FORMAT, 31));
+        }
+    }
 
-	/**
-	 * create：日付（直近1年）データ生成
-	 */
-	public function test_create_03()
-	{
-		// パラメータ
-		$params = [
-			'type' => 28
-		];
+    /**
+     * create：日付（直近1年）データ生成
+     */
+    public function test_create_03()
+    {
+        // パラメータ
+        $params = [
+            'type' => 28
+        ];
 
-		// テスト
-		$service = $this->app->make(DataGenerateService::class);
-		$created_items = $service->create($params);
+        // テスト
+        $service = $this->app->make(DataGenerateService::class);
+        $created_items = $service->create($params);
 
-		// データ確認
-		$this->assertCount(10, $created_items);
-		foreach ($created_items as $created_item) {
-			$this->assertTrue($this->validateDateFormat($created_item, self::DATE_FORMAT, 365));
-		}
-	}
+        // データ確認
+        $this->assertCount(10, $created_items);
+        foreach ($created_items as $created_item) {
+            $this->assertTrue($this->validateDateFormat($created_item, self::DATE_FORMAT, 365));
+        }
+    }
 
-	/**
-	 * create：住所データ生成（複数のメソッド呼び出しで生成）
-	 */
-	public function test_create_04()
-	{
-		// パラメータ
-		$params = [
-			'type' => 3
-		];
+    /**
+     * create：住所データ生成（複数のメソッド呼び出しで生成）
+     */
+    public function test_create_04()
+    {
+        // パラメータ
+        $params = [
+            'type' => 3
+        ];
 
-		// テスト
-		$service = $this->app->make(DataGenerateService::class);
-		$created_items = $service->create($params);
+        // テスト
+        $service = $this->app->make(DataGenerateService::class);
+        $created_items = $service->create($params);
 
-		// データ確認
-		$this->assertCount(10, $created_items);
-		foreach ($created_items as $created_item) {
-			$this->assertIsString($created_item);
-		}
-	}
+        // データ確認
+        $this->assertCount(10, $created_items);
+        foreach ($created_items as $created_item) {
+            $this->assertIsString($created_item);
+        }
+    }
 
-	/**
-	 * create：クレジットカードデータ生成（カンマ区切りで生成）
-	 */
-	public function test_create_05()
-	{
-		// パラメータ
-		$params = [
-			'type' => 8
-		];
+    /**
+     * create：クレジットカードデータ生成（カンマ区切りで生成）
+     */
+    public function test_create_05()
+    {
+        // パラメータ
+        $params = [
+            'type' => 8
+        ];
 
-		// テスト
-		$service = $this->app->make(DataGenerateService::class);
-		$created_items = $service->create($params);
+        // テスト
+        $service = $this->app->make(DataGenerateService::class);
+        $created_items = $service->create($params);
 
-		// データ確認
-		$this->assertCount(10, $created_items);
-		foreach ($created_items as $created_item) {
-			$item_details = explode(',', $created_item);
-			$this->assertTrue(count($item_details) > 0);
-		}
-	}
+        // データ確認
+        $this->assertCount(10, $created_items);
+        foreach ($created_items as $created_item) {
+            $item_details = explode(',', $created_item);
+            $this->assertTrue(count($item_details) > 0);
+        }
+    }
 
-	/**
-	 * create：それ他の種別
-	 */
-	public function test_create_06()
-	{
-		// パラメータ
-		$params = [
-			'type' => 14
-		];
+    /**
+     * create：それ他の種別
+     */
+    public function test_create_06()
+    {
+        // パラメータ
+        $params = [
+            'type' => 14
+        ];
 
-		// テスト
-		$service = $this->app->make(DataGenerateService::class);
-		$created_items = $service->create($params);
+        // テスト
+        $service = $this->app->make(DataGenerateService::class);
+        $created_items = $service->create($params);
 
-		// データ確認
-		$this->assertCount(10, $created_items);
-		foreach ($created_items as $created_item) {
-			$this->assertRegExp('/\d{1,3}.\d{1,3}.\d{1,3}/u', $created_item);
-		}
-	}
+        // データ確認
+        $this->assertCount(10, $created_items);
+        foreach ($created_items as $created_item) {
+            $this->assertRegExp('/\d{1,3}.\d{1,3}.\d{1,3}/u', $created_item);
+        }
+    }
 
-	/**
-	 * 日付フォーマットをチェックする
-	 *
-	 * @param string   $date   日付文字列
-	 * @param string   $format フォーマット
-	 * @param int|null $within 日数
-	 * @return bool フォーマットが一致しているかどうか
-	 * @throws
-	 */
-	private function validateDateFormat(string $date, string $format='Y-m-d H:i:s', ?int $within=null) :bool{
-		$datetime = \DateTime::createFromFormat($format, $date);
+    /**
+     * 日付フォーマットをチェックする
+     *
+     * @param string $date 日付文字列
+     * @param string $format フォーマット
+     * @param int|null $within 日数
+     * @return bool フォーマットが一致しているかどうか
+     * @throws
+     */
+    private function validateDateFormat(string $date, string $format = 'Y-m-d H:i:s', ?int $within = null): bool
+    {
+        $datetime = \DateTime::createFromFormat($format, $date);
 
-		if($within === null)
-			return $datetime && ($datetime->format($format) === $date);
+        if ($within === null) {
+            return $datetime && ($datetime->format($format) === $date);
+        }
 
-		return (new \Datetime())->modify("-{$within} day") < $datetime;
-	}
+        return (new \Datetime())->modify("-{$within} day") < $datetime;
+    }
 }

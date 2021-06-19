@@ -13,39 +13,39 @@ use Tests\TestCase;
  */
 class DataGenerateRepositoryTest extends TestCase
 {
-	/**
-	 * データ生成リポジトリのインスタンス
-	 *
-	 * @var null
-	 */
-	private $data_generate_repository = null;
+    /**
+     * データ生成リポジトリのインスタンス
+     *
+     * @var null
+     */
+    private $dataGenerateRepository = null;
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public function setUp(): void
-	{
-		parent::setUp();
-		$this->data_generate_repository = $this->app->make(DataGenerateRepository::class);
-	}
+    /**
+     * {@inheritDoc}
+     */
+    public function setUp(): void
+    {
+        parent::setUp();
+        $this->dataGenerateRepository = $this->app->make(DataGenerateRepository::class);
+    }
 
-	/**
+    /**
 	 * カテゴリー取得：正常系
 	 */
 	public function test_getCategories_01()
     {
-    	// テスト
-    	$categories = $this->data_generate_repository->getCategories();
+        // テスト
+        $categories = $this->dataGenerateRepository->getCategories();
 
-    	// データ確認
-    	$this->assertCount(4, $categories);
+        // データ確認
+        $this->assertCount(4, $categories);
         $this->assertSame(1, $categories[0]['id']);
         $this->assertSame('個人情報系', $categories[0]['name']);
-		$this->assertSame(2, $categories[1]['id']);
-		$this->assertSame('Web系', $categories[1]['name']);
-		$this->assertSame(3, $categories[2]['id']);
-		$this->assertSame('時間系', $categories[2]['name']);
-		$this->assertSame(4, $categories[3]['id']);
+        $this->assertSame(2, $categories[1]['id']);
+        $this->assertSame('Web系', $categories[1]['name']);
+        $this->assertSame(3, $categories[2]['id']);
+        $this->assertSame('時間系', $categories[2]['name']);
+        $this->assertSame(4, $categories[3]['id']);
 		$this->assertSame('未分類', $categories[3]['name']);
     }
 
@@ -53,19 +53,19 @@ class DataGenerateRepositoryTest extends TestCase
 	 * データ種別取得：正常系
 	 */
 	public function test_getDataTypes_01()
-	{
-		// テスト
-		$data_types = $this->data_generate_repository->getDataTypes();
+    {
+        // テスト
+        $data_types = $this->dataGenerateRepository->getDataTypes();
 
-		// データ確認
-		$this->assertCount(38, $data_types);
-		$this->assertSame(1, $data_types[0]['id']);
-		$this->assertSame('国', $data_types[0]['name']);
-		$this->assertSame(1, $data_types[0]['category_id']);
-		$this->assertSame('イギリス', $data_types[0]['sample']);
-		$this->assertSame(2, $data_types[1]['id']);
-		$this->assertSame('郵便番号', $data_types[1]['name']);
-		$this->assertSame(1, $data_types[1]['category_id']);
+        // データ確認
+        $this->assertCount(38, $data_types);
+        $this->assertSame(1, $data_types[0]['id']);
+        $this->assertSame('国', $data_types[0]['name']);
+        $this->assertSame(1, $data_types[0]['category_id']);
+        $this->assertSame('イギリス', $data_types[0]['sample']);
+        $this->assertSame(2, $data_types[1]['id']);
+        $this->assertSame('郵便番号', $data_types[1]['name']);
+        $this->assertSame(1, $data_types[1]['category_id']);
 		$this->assertSame('6185699', $data_types[1]['sample']);
 		$this->assertSame(3, $data_types[2]['id']);
 		$this->assertSame('住所', $data_types[2]['name']);
