@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 /**
  * Class DataGenerateController
+ *
  * @package App\Http\Controllers
  */
 class DataGenerateController extends Controller

@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Ddg\Repositories;
 
 use App\Ddg\Models\DdgCategory;
 use App\Ddg\Models\DdgDataType;
 
 /**
- * Class DataGenerateRepository
- * @package App\Repositories
+ * Class DataGenerateRepository.
  */
 class DataGenerateRepository implements DataGenerateRepositoryInterface
 {
@@ -41,10 +42,10 @@ class DataGenerateRepository implements DataGenerateRepositoryInterface
         return $this->ddgCategory->all()->toArray();
     }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getDataTypes(): array
+    /**
+     * {@inheritdoc}
+     */
+    public function getDataTypes(): array
     {
         return $this->ddgDataType->all()->toArray();
     }
