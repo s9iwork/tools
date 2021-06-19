@@ -39,13 +39,13 @@ task('change_cwd', function () {
 after('deploy:update_code', 'change_cwd');
 
 task('npm:run', function (): void {
-	run('cd {{release_path}} && npm install');
+    run('cd {{release_path}} && npm install -legacy-peer-deps');
 
-	if (input()->getArgument('stage') === 'production') {
-		run('cd {{release_path}} && npm run prod');
-	} else {
-		run('cd {{release_path}} && npm run dev');
-	}
+    if (input()->getArgument('stage') === 'production') {
+        run('cd {{release_path}} && npm run prod');
+    } else {
+        run('cd {{release_path}} && npm run dev');
+    }
 });
 
 task('php:run', function (): void {
