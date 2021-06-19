@@ -28,13 +28,11 @@
       <path value="$PROJECT_DIR$/src/vendor/nikic/php-parser" />
       <path value="$PROJECT_DIR$/src/vendor/league/mime-type-detection" />
       <path value="$PROJECT_DIR$/src/vendor/league/flysystem" />
-      <path value="$PROJECT_DIR$/src/vendor/nesbot/carbon" />
       <path value="$PROJECT_DIR$/src/vendor/ramsey/uuid" />
       <path value="$PROJECT_DIR$/src/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/src/vendor/dnoegel/php-xdg-base-dir" />
       <path value="$PROJECT_DIR$/src/vendor/egulias/email-validator" />
       <path value="$PROJECT_DIR$/src/vendor/laravel/tinker" />
-      <path value="$PROJECT_DIR$/src/vendor/laravel/framework" />
       <path value="$PROJECT_DIR$/src/vendor/mockery/mockery" />
       <path value="$PROJECT_DIR$/src/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/src/vendor/myclabs/deep-copy" />
@@ -61,10 +59,8 @@
       <path value="$PROJECT_DIR$/src/vendor/symfony/css-selector" />
       <path value="$PROJECT_DIR$/src/vendor/symfony/event-dispatcher-contracts" />
       <path value="$PROJECT_DIR$/src/vendor/symfony/finder" />
-      <path value="$PROJECT_DIR$/src/vendor/symfony/http-kernel" />
       <path value="$PROJECT_DIR$/src/vendor/symfony/mime" />
       <path value="$PROJECT_DIR$/src/vendor/symfony/deprecation-contracts" />
-      <path value="$PROJECT_DIR$/src/vendor/symfony/routing" />
       <path value="$PROJECT_DIR$/src/vendor/symfony/service-contracts" />
       <path value="$PROJECT_DIR$/src/vendor/symfony/http-client-contracts" />
       <path value="$PROJECT_DIR$/src/vendor/symfony/http-foundation" />
@@ -118,6 +114,10 @@
       <path value="$PROJECT_DIR$/src/vendor/doctrine/annotations" />
       <path value="$PROJECT_DIR$/src/vendor/php-cs-fixer/diff" />
       <path value="$PROJECT_DIR$/src/vendor/friendsofphp/php-cs-fixer" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/src/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/src/vendor/laravel/framework" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3">
