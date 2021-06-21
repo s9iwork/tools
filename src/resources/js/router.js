@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 
 import Top from './pages/Top';
 import Ddg from './pages/Ddg';
-import Cic from './pages/Cic';
+import Ams from './pages/Ams';
 
 Vue.use(VueRouter);
 
@@ -27,12 +27,12 @@ const routes = [
     },
   },
   {
-    path: '/cic',
-    component: Cic,
+    path: '/ams',
+    component: Ams,
     meta: {
-      title: 'ダミーデータジェネレーター｜Webツール',
-      description: '様々なテストデータ、ダミーデータを作成するツールです。',
-      favicon: './img/ddg/favicon.png',
+      title: '資産運用シミュレータ｜Webツール',
+      description: '資産運用シミュレータ', // TODO
+      favicon: './img/ddg/favicon.png', // TODO
     },
   },
 ];
