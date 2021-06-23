@@ -38,6 +38,37 @@
             </div>
           </div>
         </form>
+        <!-- テーブル -->
+        <div class="row">
+          <div class="col s12">
+            <table class="responsive-table highlight">
+              <thead>
+                <tr>
+                  <th>対象資産</th>
+                  <th>利回り</th>
+                  <th>投資金額(年間)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>銀行</td>
+                  <td>0.004%</td>
+                  <td>300,000</td>
+                </tr>
+                <tr>
+                  <td>投資信託</td>
+                  <td>3%</td>
+                  <td>300,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 center">
+            <a class="waves-effect waves-light btn">計算</a>
+          </div>
+        </div>
       </div>
     </main>
     <Footer slot="footer"/>
