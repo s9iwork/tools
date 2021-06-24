@@ -12,5 +12,5 @@ php composer.phar dump-autoload
 php artisan migrate --seed
 APP_ENV=testing php artisan migrate
 
-npm install
+npm install -legacy-peer-deps
 npm run dev
