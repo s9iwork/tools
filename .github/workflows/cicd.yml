@@ -39,9 +39,9 @@ jobs:
       # os package install
       - name: install packages
         run: |
-          sudo apt update
-          sudo docker-php-ext-install zip pdo_mysql
-          sudo apt-get install default-mysql-client
+          apt-get update
+          apt-get install -y libonig-dev libpq-dev zlib1g-dev libzip-dev \
+              && docker-php-ext-install zip pdo_mysql
 
       # Setup app
       - name: Copy .env
@@ -50,7 +50,7 @@ jobs:
 
       - name: Install php packages
         working-directory: ./src
-        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+        run: php composer.phar install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
       - name: Generate key
         working-directory: ./src
@@ -69,8 +69,8 @@ jobs:
 
       - name: Install nodejs
         run: |
-          RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
-          RUN apt-get install -y --no-install-recommends nodejs
+          curl -sL https://deb.nodesource.com/setup_16.x | bash -
+          apt-get install -y --no-install-recommends nodejs
 
       - name: Install node packages
         working-directory: ./src
