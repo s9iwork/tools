@@ -10,7 +10,7 @@ jobs:
   build-and-test:
 
     runs-on: ubuntu-latest
-    container: circleci/php:7.3-fpm-node-browsers
+    container: php:7.3-fpm
 
     env:
       APP_ENV: testing
@@ -33,7 +33,7 @@ jobs:
     steps:
       # checkout
       - name: Setup file system permissions
-        run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
+        run: chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
       - uses: actions/checkout@v2
 
       # os package install
@@ -47,21 +47,30 @@ jobs:
       - name: Copy .env
         working-directory: ./src
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+
       - name: Install php packages
         working-directory: ./src
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
       - name: Generate key
         working-directory: ./src
         run: php artisan key:generate
+
       - name: Make directories
         working-directory: ./src
         run: |
           mkdir -p storage/framework/cache/data
           mkdir -p storage/framework/sessions
           mkdir -p storage/framework/views
+
       - name: Directory Permissions
         working-directory: ./src
         run: chmod -R 777 storage bootstrap/cache
+
+      - name: Install nodejs
+        run: |
+          RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
+          RUN apt-get install -y --no-install-recommends nodejs
 
       - name: Install node packages
         working-directory: ./src
