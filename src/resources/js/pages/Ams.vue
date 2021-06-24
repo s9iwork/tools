@@ -9,7 +9,7 @@
         <form class="col s12">
           <div class="row">
             <div class="input-field col s12">
-              <select>
+              <select v-model="type">
                 <option selected>選択してください</option>
                 <option value="1">銀行</option>
                 <option value="2">株</option>
@@ -22,19 +22,19 @@
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input type="number">
+              <input type="number" v-model="yieldYear">
               <label>利回り</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input type="number">
+              <input type="number" v-model="amount">
               <label>投資金額(年間)</label>
             </div>
           </div>
           <div class="row">
             <div class="col s12 center">
-              <a class="waves-effect waves-light btn">追加</a>
+              <a class="waves-effect waves-light btn" @click="add">追加</a>
             </div>
           </div>
         </form>
@@ -50,15 +50,10 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>銀行</td>
-                  <td>0.004%</td>
-                  <td>300,000</td>
-                </tr>
-                <tr>
-                  <td>投資信託</td>
-                  <td>3%</td>
-                  <td>300,000</td>
+                <tr v-for="(asset, i) in assets" :key="i">
+                  <td>{{ assetMaster[asset.type] }}</td>
+                  <td>{{ asset.yield }}</td>
+                  <td>{{ asset.amount }}</td>
                 </tr>
               </tbody>
             </table>
@@ -93,6 +88,41 @@ export default {
   mounted() {
     const elems = document.querySelectorAll('select');
     M.FormSelect.init(elems, {});
+  },
+  data() {
+    return {
+      assetMaster: {
+        1: '銀行',
+        2: '株',
+        3: '投資信託',
+        4: 'ETF',
+        5: '債券',
+      },
+      type: '',
+      yieldYear: '',
+      amount: '',
+      assets: [
+        {
+          type: 1,
+          yield: '0.002%',
+          amount: '300000',
+        },
+        {
+          type: 2,
+          yield: '3%',
+          amount: '300000',
+        },
+      ],
+    };
+  },
+  methods: {
+    add() {
+      this.assets.push({
+        type: this.type,
+        yield: this.yieldYear,
+        amount: this.amount,
+      });
+    },
   },
 };
 </script>
