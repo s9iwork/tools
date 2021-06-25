@@ -7,6 +7,13 @@
       <!-- フォーム -->
       <div class="row form">
         <form class="col s12">
+          <div v-if="errors.length > 0">
+            <ul>
+              <li v-for="(error, i) in errors" :key="i">
+                {{ error }}
+              </li>
+            </ul>
+          </div>
           <div class="row">
             <div class="input-field col s12">
               <select v-model="type">
@@ -52,8 +59,8 @@
               <tbody>
                 <tr v-for="(asset, i) in assets" :key="i">
                   <td>{{ assetMaster[asset.type] }}</td>
-                  <td>{{ asset.yield }}</td>
-                  <td>{{ asset.amount }}</td>
+                  <td>{{ `${asset.yield}%` }}</td>
+                  <td>{{ asset.amount.toLocaleString() }}</td>
                 </tr>
               </tbody>
             </table>
@@ -101,15 +108,16 @@ export default {
       type: '',
       yieldYear: '',
       amount: '',
+      errors: [],
       assets: [
         {
           type: 1,
-          yield: '0.002%',
+          yield: '0.002',
           amount: '300000',
         },
         {
           type: 2,
-          yield: '3%',
+          yield: '3',
           amount: '300000',
         },
       ],
@@ -117,11 +125,28 @@ export default {
   },
   methods: {
     add() {
+      if (!this.validate()) {
+        return;
+      }
       this.assets.push({
         type: this.type,
         yield: this.yieldYear,
         amount: this.amount,
       });
+    },
+    validate() {
+      this.errors = [];
+
+      if (this.type === '') {
+        this.errors.push('対象資産を入力してください');
+      }
+      if (this.yieldYear === '') {
+        this.errors.push('利回りを入力してください');
+      }
+      if (this.amount === '') {
+        this.errors.push('投資金額を入力してください');
+      }
+      return this.errors.length <= 0;
     },
   },
 };
