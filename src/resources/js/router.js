@@ -30,8 +30,8 @@ const routes = [
     path: '/ams',
     component: Ams,
     meta: {
-      title: '資産運用シミュレータ｜Webツール',
-      description: '資産運用シミュレータ', // TODO
+      title: '資産運用シミュレーター｜Webツール',
+      description: '資産運用シミュレーター', // TODO
       favicon: './img/ddg/favicon.png', // TODO
     },
   },
