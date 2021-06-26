@@ -8,11 +8,7 @@
       <div class="row form">
         <form class="col s12">
           <div v-if="errors.length > 0">
-            <ul>
-              <li v-for="(error, i) in errors" :key="i">
-                {{ error }}
-              </li>
-            </ul>
+            <Error :errors="errors"/>
           </div>
           <div class="row">
             <div class="input-field col s12">
@@ -48,7 +44,7 @@
         <!-- テーブル -->
         <div class="row">
           <div class="col s12">
-            <table class="responsive-table highlight">
+            <table class="highlight">
               <thead>
                 <tr>
                   <th>対象資産</th>
@@ -60,7 +56,7 @@
                 <tr v-for="(asset, i) in assets" :key="i">
                   <td>{{ assetMaster[asset.type] }}</td>
                   <td>{{ `${asset.yield}%` }}</td>
-                  <td>{{ asset.amount.toLocaleString() }}</td>
+                  <td>{{ Number(asset.amount).toLocaleString('ja-JP') }}</td>
                 </tr>
               </tbody>
             </table>
@@ -83,10 +79,13 @@ import PageContainer from '../components/PageContainer';
 import ToolDescription from '../components/ToolDescription';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { getRequiredErrorMessage } from '../errors/general';
+import Error from '../components/Error';
 
 export default {
   name: 'Ams',
   components: {
+    Error,
     PageContainer,
     ToolDescription,
     Header,
@@ -138,14 +137,15 @@ export default {
       this.errors = [];
 
       if (this.type === '') {
-        this.errors.push('対象資産を入力してください');
+        this.errors.push(getRequiredErrorMessage('対象資産'));
       }
       if (this.yieldYear === '') {
-        this.errors.push('利回りを入力してください');
+        this.errors.push(getRequiredErrorMessage('利回り'));
       }
       if (this.amount === '') {
-        this.errors.push('投資金額を入力してください');
+        this.errors.push(getRequiredErrorMessage('投資金額'));
       }
+
       return this.errors.length <= 0;
     },
   },
