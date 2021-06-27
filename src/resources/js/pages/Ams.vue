@@ -62,7 +62,11 @@
                 <td>{{ assetMaster[asset.type] }}</td>
                 <td>{{ `${asset.yield}%` }}</td>
                 <td>{{ Number(asset.amount).toLocaleString('ja-JP') }}</td>
-                <td><i class="material-icons">delete</i></td>
+                <td>
+                  <button class="btn red" @click="destroy(i)">
+                    <i class="material-icons">delete</i>
+                  </button>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -73,6 +77,11 @@
           <button class="waves-effect waves-light btn" @click="calc">計算</button>
         </div>
       </div>
+      <div class="row" v-if="isLoading">
+        <div class="col s12 center-align">
+          <Loader/>
+        </div>
+      </div>
     </main>
     <Footer slot="footer"/>
   </PageContainer>
@@ -80,20 +89,23 @@
 
 <script>
 import M from 'materialize-css';
+import axios from 'axios';
 import PageContainer from '../components/PageContainer';
 import ToolDescription from '../components/ToolDescription';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import {getRequiredErrorMessage} from '../errors/general';
+import { getRequiredErrorMessage } from '../errors/general';
 import Error from '../components/Error';
+import Loader from '../components/Loader';
 
 export default {
   name: 'Ams',
   components: {
-    Error,
+    Header,
     PageContainer,
     ToolDescription,
-    Header,
+    Error,
+    Loader,
     Footer,
   },
   mounted() {
@@ -125,6 +137,8 @@ export default {
           amount: '300000',
         },
       ],
+      calculated: [],
+      isLoading: false,
     };
   },
   methods: {
@@ -157,7 +171,32 @@ export default {
       if (this.assets.length <= 0) {
         return;
       }
-      alert('計算！');
+
+      this.calculated = [];
+      this.isLoading = true;
+      axios.post('/api/ams/calc', {
+        assets: this.createCalcParam(),
+      }).then((res) => {
+        this.calculated = res.data;
+      }).catch(() => {
+        M.toast({ html: 'エラーが発生しました' });
+      }).finally(() => {
+        this.isLoading = false;
+      });
+    },
+    createCalcParam() {
+      const params = [];
+      this.assets.forEach((asset) => {
+        params.push({
+          type: asset.type,
+          yield: asset.yield,
+          amount: asset.amount,
+        });
+      });
+      return params;
+    },
+    destroy(i) {
+      this.assets.splice(i, 1);
     },
   },
 };
