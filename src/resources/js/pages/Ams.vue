@@ -82,6 +82,16 @@
           <Loader/>
         </div>
       </div>
+      <div class="row chart" v-if="lineChartData !== ''">
+        <div class="col s12 center">
+          <LineChart :chartdata="lineChartData" :options="getLineChartOptions"/>
+        </div>
+      </div>
+      <div class="row chart" v-if="doughnutChartData !== ''">
+        <div class="col s12 center">
+          <DoughnutChart :chartdata="doughnutChartData" :options="getDoughnutChartOptions()"/>
+        </div>
+      </div>
     </main>
     <Footer slot="footer"/>
   </PageContainer>
@@ -97,6 +107,8 @@ import Footer from '../components/Footer';
 import { getRequiredErrorMessage } from '../errors/general';
 import Error from '../components/Error';
 import Loader from '../components/Loader';
+import LineChart from '../components/chart/LineChart';
+import DoughnutChart from '../components/chart/DoughnutChart';
 
 export default {
   name: 'Ams',
@@ -106,6 +118,8 @@ export default {
     ToolDescription,
     Error,
     Loader,
+    LineChart,
+    DoughnutChart,
     Footer,
   },
   mounted() {
@@ -137,7 +151,8 @@ export default {
           amount: '300000',
         },
       ],
-      calculated: [],
+      lineChartData: '',
+      doughnutChartData: '',
       isLoading: false,
     };
   },
@@ -172,12 +187,12 @@ export default {
         return;
       }
 
-      this.calculated = [];
       this.isLoading = true;
       axios.post('/api/ams/calc', {
         assets: this.createCalcParam(),
       }).then((res) => {
-        this.calculated = res.data;
+        this.setLineChartData(res.data);
+        this.setDoughnutChartData(res.data);
       }).catch(() => {
         M.toast({ html: 'エラーが発生しました' });
       }).finally(() => {
@@ -194,6 +209,35 @@ export default {
         });
       });
       return params;
+    },
+    setLineChartData(calculated) {
+      this.lineChartData = {
+        labels: [2021, 2022, 2023, 2024, 2025, 2026],
+        datasets: [{
+          label: '資産推移',
+          data: [100000, 200000, 300000, 400000, 500000, 600000],
+        }],
+      };
+    },
+    setDoughnutChartData(calculated) {
+      this.doughnutChartData = {
+        labels: ['銀行', '投資信託'],
+        datasets: [{
+          label: '資産内訳',
+          data: [100000, 200000],
+          backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)',
+          ],
+        }],
+      };
+    },
+    getLineChartOptions() {
+      return {};
+    },
+    getDoughnutChartOptions() {
+      return {};
     },
     destroy(i) {
       this.assets.splice(i, 1);
@@ -216,5 +260,10 @@ h2 {
 
 .formContainer {
   margin-top: 2rem;
+}
+
+.chart {
+  width: 400px;
+  height: 400px;
 }
 </style>
