@@ -82,14 +82,13 @@
           <Loader/>
         </div>
       </div>
-      <div class="row chart" v-if="lineChartData !== ''">
-        <div class="col s12 center">
-          <LineChart :chartdata="lineChartData" :options="getLineChartOptions"/>
+      <div class="row chartContainer" v-if="chartData !== ''">
+        <h2>結果</h2>
+        <div class="col s12 m6 chart">
+          <LineChart :chartdata="chartData.transition" :options="getLineChartOptions()"/>
         </div>
-      </div>
-      <div class="row chart" v-if="doughnutChartData !== ''">
-        <div class="col s12 center">
-          <DoughnutChart :chartdata="doughnutChartData" :options="getDoughnutChartOptions()"/>
+        <div class="col s12 m6 chart">
+          <DoughnutChart :chartdata="chartData.breakdown" :options="getDoughnutChartOptions()"/>
         </div>
       </div>
     </main>
@@ -104,7 +103,7 @@ import PageContainer from '../components/PageContainer';
 import ToolDescription from '../components/ToolDescription';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { getRequiredErrorMessage } from '../errors/general';
+import {getRequiredErrorMessage} from '../errors/general';
 import Error from '../components/Error';
 import Loader from '../components/Loader';
 import LineChart from '../components/chart/LineChart';
@@ -151,8 +150,7 @@ export default {
           amount: '300000',
         },
       ],
-      lineChartData: '',
-      doughnutChartData: '',
+      chartData: '',
       isLoading: false,
     };
   },
@@ -191,8 +189,7 @@ export default {
       axios.post('/api/ams/calc', {
         assets: this.createCalcParam(),
       }).then((res) => {
-        this.setLineChartData(res.data);
-        this.setDoughnutChartData(res.data);
+        this.setChartData(res.data);
       }).catch(() => {
         M.toast({ html: 'エラーが発生しました' });
       }).finally(() => {
@@ -210,27 +207,29 @@ export default {
       });
       return params;
     },
-    setLineChartData(calculated) {
-      this.lineChartData = {
-        labels: [2021, 2022, 2023, 2024, 2025, 2026],
-        datasets: [{
-          label: '資産推移',
-          data: [100000, 200000, 300000, 400000, 500000, 600000],
-        }],
-      };
-    },
-    setDoughnutChartData(calculated) {
-      this.doughnutChartData = {
-        labels: ['銀行', '投資信託'],
-        datasets: [{
-          label: '資産内訳',
-          data: [100000, 200000],
-          backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)',
-          ],
-        }],
+    setChartData(calculated) {
+      this.chartData = {
+        transition: {
+          labels: [2021, 2022, 2023, 2024, 2025, 2026],
+          datasets: [{
+            label: '資産推移',
+            data: [100000, 200000, 300000, 400000, 500000, 600000],
+            borderColor: 'rgb(75, 192, 192)',
+            fill: false,
+          }],
+        },
+        breakdown: {
+          labels: ['銀行', '投資信託'],
+          datasets: [{
+            label: '資産内訳',
+            data: [100000, 200000],
+            backgroundColor: [
+              'rgb(255, 99, 132)',
+              'rgb(54, 162, 235)',
+              'rgb(255, 205, 86)',
+            ],
+          }],
+        },
       };
     },
     getLineChartOptions() {
