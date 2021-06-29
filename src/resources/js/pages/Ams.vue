@@ -39,7 +39,7 @@
             </div>
             <div class="row">
               <div class="col s12 center">
-                <button class="waves-effect waves-light btn" @click="add">追加</button>
+                <button type="button" class="waves-effect waves-light btn" @click="add">追加</button>
               </div>
             </div>
           </form>
@@ -63,7 +63,7 @@
                 <td>{{ `${asset.yield}%` }}</td>
                 <td>{{ Number(asset.amount).toLocaleString('ja-JP') }}</td>
                 <td>
-                  <button class="btn red" @click="destroy(i)">
+                  <button type="button" class="btn red" @click="destroy(i)">
                     <i class="material-icons">delete</i>
                   </button>
                 </td>
@@ -74,7 +74,7 @@
       </div>
       <div class="row">
         <div class="col s12 center">
-          <button class="waves-effect waves-light btn" @click="calc">計算</button>
+          <button type="button" class="waves-effect waves-light btn" @click="calc">計算</button>
         </div>
       </div>
       <div class="row" v-if="isLoading">
@@ -103,7 +103,7 @@ import PageContainer from '../components/PageContainer';
 import ToolDescription from '../components/ToolDescription';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import {getRequiredErrorMessage} from '../errors/general';
+import { getRequiredErrorMessage } from '../errors/general';
 import Error from '../components/Error';
 import Loader from '../components/Loader';
 import LineChart from '../components/chart/LineChart';
