@@ -141,13 +141,13 @@ export default {
       assets: [
         {
           type: 1,
-          yield: '0.002',
-          amount: '300000',
+          yield: '1',
+          amount: '10000',
         },
         {
           type: 2,
-          yield: '3',
-          amount: '300000',
+          yield: '1',
+          amount: '10000',
         },
       ],
       chartData: '',
