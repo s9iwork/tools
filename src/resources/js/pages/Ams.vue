@@ -82,13 +82,13 @@
           <Loader/>
         </div>
       </div>
-      <div class="row chartContainer" v-if="chartData !== ''">
-        <h2>結果</h2>
-        <div class="col s12 m6 chart">
-          <LineChart :chartdata="chartData.transition" :options="getLineChartOptions()"/>
-        </div>
-        <div class="col s12 m6 chart">
-          <DoughnutChart :chartdata="chartData.breakdown" :options="getDoughnutChartOptions()"/>
+      <div class="row" v-if="chartData !== ''">
+        <div class="col s12">
+          <h2>結果</h2>
+          <LineChart :height="400" :chartdata="chartData.transition"
+                     :options="getLineChartOptions()"/>
+          <DoughnutChart style="margin-top: 3rem" :height="400" :chartdata="chartData.breakdown"
+                         :options="getDoughnutChartOptions()"/>
         </div>
       </div>
     </main>
@@ -208,21 +208,37 @@ export default {
       return params;
     },
     setChartData(calculated) {
+      // 資産推移
+      const transitionLabel = [];
+      const transitionAmount = [];
+      Object.keys(calculated.transition_history).forEach((k) => {
+        transitionLabel.push(k);
+        transitionAmount.push(calculated.transition_history[k]);
+      });
+
+      // 資産内訳
+      const breakdownLabel = [];
+      const breakdownAmount = [];
+      Object.keys(calculated.breakdown).forEach((k) => {
+        breakdownLabel.push(this.assetMaster[k]);
+        breakdownAmount.push(calculated.breakdown[k]);
+      });
+
       this.chartData = {
         transition: {
-          labels: [2021, 2022, 2023, 2024, 2025, 2026],
+          labels: transitionLabel,
           datasets: [{
             label: '資産推移',
-            data: [100000, 200000, 300000, 400000, 500000, 600000],
+            data: transitionAmount,
             borderColor: 'rgb(75, 192, 192)',
             fill: false,
           }],
         },
         breakdown: {
-          labels: ['銀行', '投資信託'],
+          labels: breakdownLabel,
           datasets: [{
             label: '資産内訳',
-            data: [100000, 200000],
+            data: breakdownAmount,
             backgroundColor: [
               'rgb(255, 99, 132)',
               'rgb(54, 162, 235)',
@@ -233,10 +249,40 @@ export default {
       };
     },
     getLineChartOptions() {
-      return {};
+      return {
+        scales: {
+          xAxes: [
+            {
+              ticks: {},
+            },
+          ],
+          yAxes: [
+            {
+              ticks: {
+                callback: (label) => `${label.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 円`,
+              },
+            },
+          ],
+        },
+        tooltips: {
+          callbacks: {
+            label(tooltipItem) {
+              return `${tooltipItem.yLabel.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 円`;
+            },
+          },
+        },
+      };
     },
     getDoughnutChartOptions() {
-      return {};
+      return {
+        tooltips: {
+          callbacks: {
+            label(tooltipItem) {
+              return `${tooltipItem.yLabel.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 円`;
+            },
+          },
+        },
+      };
     },
     destroy(i) {
       this.assets.splice(i, 1);
@@ -259,10 +305,5 @@ h2 {
 
 .formContainer {
   margin-top: 2rem;
-}
-
-.chart {
-  width: 400px;
-  height: 400px;
 }
 </style>

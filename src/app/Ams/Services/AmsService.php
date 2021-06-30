@@ -20,7 +20,10 @@ class AmsService implements IAmsService
         $transitionHistory = [];
         $breakdown = [];
 
+        $year = date("Y");
         for ($i = 0; $i < AmsConstant::OPERATED_YEAR; $i++) {
+            $year++;
+
             // 資産ごとに運用額を計算
             foreach ($params as $asset) {
                 $yearAmount = floor($asset['amount'] + ($asset['amount'] * $asset['yield'] / 100));
@@ -34,7 +37,7 @@ class AmsService implements IAmsService
             }
 
             // 資産推移用
-            $transitionHistory[] = $totalAmount;
+            $transitionHistory[$year] = $totalAmount;
         }
 
         return [
