@@ -61,7 +61,7 @@
               <tr v-for="(asset, i) in assets" :key="i">
                 <td>{{ assetMaster[asset.type] }}</td>
                 <td>{{ `${asset.yield}%` }}</td>
-                <td>{{ Number(asset.amount).toLocaleString('ja-JP') }}</td>
+                <td>{{ `${Number(asset.amount).toLocaleString('ja-JP')}円` }}</td>
                 <td>
                   <button type="button" class="btn red" @click="destroy(i)">
                     <i class="material-icons">delete</i>
@@ -132,7 +132,8 @@ export default {
         2: '株',
         3: '投資信託',
         4: 'ETF',
-        5: '債券',
+        5: 'J-REIT',
+        6: 'その他',
       },
       type: '',
       yieldYear: '',
@@ -146,6 +147,26 @@ export default {
         },
         {
           type: 2,
+          yield: '1',
+          amount: '10000',
+        },
+        {
+          type: 3,
+          yield: '1',
+          amount: '10000',
+        },
+        {
+          type: 4,
+          yield: '1',
+          amount: '10000',
+        },
+        {
+          type: 5,
+          yield: '1',
+          amount: '10000',
+        },
+        {
+          type: 6,
           yield: '1',
           amount: '10000',
         },
@@ -237,12 +258,14 @@ export default {
         breakdown: {
           labels: breakdownLabel,
           datasets: [{
-            label: '資産内訳',
             data: breakdownAmount,
             backgroundColor: [
-              'rgb(255, 99, 132)',
-              'rgb(54, 162, 235)',
-              'rgb(255, 205, 86)',
+              '#ff6384',
+              '#36a2eb',
+              '#ffcd56',
+              '#ff9205',
+              '#05ff16',
+              '#d458f9',
             ],
           }],
         },
@@ -275,10 +298,19 @@ export default {
     },
     getDoughnutChartOptions() {
       return {
+        title: {
+          display: true,
+          text: '資産内訳',
+        },
         tooltips: {
           callbacks: {
-            label(tooltipItem) {
-              return `${tooltipItem.yLabel.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 円`;
+            label(tooltipItem, data) {
+              // tooltipItemに入ってないのでデータ全体から取る
+              const label = data.labels[tooltipItem.index];
+              const amount = data.datasets[0].data[tooltipItem.index];
+              const formattedAmount = `${amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 円`;
+
+              return `${label}：${formattedAmount}`;
             },
           },
         },
