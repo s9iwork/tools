@@ -233,7 +233,7 @@ export default {
       const transitionLabel = [];
       const transitionAmount = [];
       Object.keys(calculated.transition_history).forEach((k) => {
-        transitionLabel.push(k);
+        transitionLabel.push(`${k}年`);
         transitionAmount.push(calculated.transition_history[k]);
       });
 
@@ -282,7 +282,7 @@ export default {
           yAxes: [
             {
               ticks: {
-                callback: (label) => `${label.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 円`,
+                callback: (label) => `${label.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}円`,
               },
             },
           ],
@@ -290,7 +290,7 @@ export default {
         tooltips: {
           callbacks: {
             label(tooltipItem) {
-              return `${tooltipItem.yLabel.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 円`;
+              return `${tooltipItem.yLabel.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}円`;
             },
           },
         },
