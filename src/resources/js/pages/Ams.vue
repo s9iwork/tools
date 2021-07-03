@@ -140,32 +140,32 @@ export default {
       errors: [],
       assets: [
         {
-          type: 1,
+          type: '1',
           yield: '0.001',
           amount: '100000',
         },
         {
-          type: 2,
+          type: '2',
           yield: '3',
           amount: '100000',
         },
         {
-          type: 3,
+          type: '3',
           yield: '3.5',
           amount: '100000',
         },
         {
-          type: 4,
+          type: '4',
           yield: '5',
           amount: '100000',
         },
         {
-          type: 5,
+          type: '5',
           yield: '4',
           amount: '100000',
         },
         {
-          type: 6,
+          type: '6',
           yield: '1',
           amount: '100000',
         },
