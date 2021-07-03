@@ -204,6 +204,8 @@ export default {
       if (this.assets.length <= 0) {
         return;
       }
+      // グラフ初期化
+      this.chartData = '';
 
       this.isLoading = true;
       axios.post('/api/ams/calc', {
