@@ -18,7 +18,7 @@ class AmsService implements IAmsService
     {
         $totalAmount = 0;
         $transitionHistory = [];
-        $breakdown = [];
+        $balance = [];
 
         $year = date("Y");
         for ($i = 0; $i < AmsConstant::OPERATED_YEAR; $i++) {
@@ -27,14 +27,12 @@ class AmsService implements IAmsService
 
             // 資産ごとに資産額を計算
             foreach ($params as $asset) {
-                // 現在の資産額に今年積立分を加算に利回り反映
-                $baseAmount = $breakdown[$asset['type']] ?? 0;
-                $baseAmount += $asset['amount'];
-                $assetAmount = floor($baseAmount + ($baseAmount * $asset['yield'] / 100));
+                // 今年の資産残高
+                $assetBalance = $this->calcAssetBalance($balance[$asset['type']] ?? 0, intval($asset['amount']), floatval($asset['yield']));
 
                 // 資産内訳用
-                $breakdown[$asset['type']] = $assetAmount;
-                $yearAmount += $assetAmount;
+                $balance[$asset['type']] = $assetBalance;
+                $yearAmount += $assetBalance;
             }
 
             // 資産推移用
@@ -45,7 +43,23 @@ class AmsService implements IAmsService
         return [
             'total_amount' => $totalAmount,
             'transition_history' => $transitionHistory,
-            "breakdown" => $breakdown,
+            "balance" => $balance,
         ];
+    }
+
+    /**
+     * 資産残高を計算する
+     *
+     * @param int $balance
+     * @param int $reserveAmount
+     * @param float $yield
+     * @return int
+     */
+    private function calcAssetBalance(int $balance, int $reserveAmount, float $yield): int
+    {
+        // 現在の資産残高に今年積立分を加算し利息加算
+        $balance += $reserveAmount;
+
+        return intval(floor($balance + ($balance * $yield / 100)));
     }
 }

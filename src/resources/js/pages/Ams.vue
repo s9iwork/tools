@@ -86,7 +86,7 @@
           <h2>結果</h2>
           <LineChart :height="400" :chartdata="chartData.transition"
                      :options="getLineChartOptions()"/>
-          <DoughnutChart style="margin-top: 3rem" :height="400" :chartdata="chartData.breakdown"
+          <DoughnutChart style="margin-top: 3rem" :height="400" :chartdata="chartData.balance"
                          :options="getDoughnutChartOptions()"/>
         </div>
       </div>
@@ -239,11 +239,11 @@ export default {
       });
 
       // 資産内訳
-      const breakdownLabel = [];
-      const breakdownAmount = [];
-      Object.keys(calculated.breakdown).forEach((k) => {
-        breakdownLabel.push(this.assetMaster[k]);
-        breakdownAmount.push(calculated.breakdown[k]);
+      const balanceLabel = [];
+      const balanceAmount = [];
+      Object.keys(calculated.balance).forEach((k) => {
+        balanceLabel.push(this.assetMaster[k]);
+        balanceAmount.push(calculated.balance[k]);
       });
 
       this.chartData = {
@@ -256,10 +256,10 @@ export default {
             fill: false,
           }],
         },
-        breakdown: {
-          labels: breakdownLabel,
+        balance: {
+          labels: balanceLabel,
           datasets: [{
-            data: breakdownAmount,
+            data: balanceAmount,
             backgroundColor: [
               '#ff6384',
               '#36a2eb',
