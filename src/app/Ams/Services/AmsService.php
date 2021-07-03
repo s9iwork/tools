@@ -37,7 +37,7 @@ class AmsService implements IAmsService
 
             // 資産推移用
             $transitionHistory[$year] = $yearAmount;
-            $totalAmount += $yearAmount;
+            $totalAmount = $yearAmount;
         }
 
         return [
