@@ -2,8 +2,7 @@
   <PageContainer>
     <Header slot="header" :tool-name="'資産運用シミュレーター'" :tool-path="'/ams'" :is-top-page="false"/>
     <main slot="main" class="container content">
-      <!-- // TODO description-->
-      <ToolDescription description="資産運用シミュレーターのディスクリプション"/>
+      <ToolDescription description="毎年の投資額と利回りを元に20年運用した場合の資産額を計算するツールです。"/>
       <!-- フォーム -->
       <div class="row formContainer">
         <div class="col s12">
