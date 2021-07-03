@@ -26,13 +26,11 @@ class AmsService implements IAmsService
 
             // 資産ごとに運用額を計算
             foreach ($params as $asset) {
-                $yearAmount = floor($asset['amount'] + ($asset['amount'] * $asset['yield'] / 100));
+                $baseAmount = $breakdown[$asset['type']] ?? $asset['amount'];
+                $yearAmount = floor($baseAmount + ($baseAmount * $asset['yield'] / 100));
 
                 // 資産内訳用
-                if (!isset($breakdown[$asset['type']])) {
-                    $breakdown[$asset['type']] = 0;
-                }
-                $breakdown[$asset['type']] += $yearAmount;
+                $breakdown[$asset['type']] = $yearAmount;
                 $totalAmount += $yearAmount;
             }
 
