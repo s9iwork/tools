@@ -19,7 +19,7 @@
                   <option value="2">株</option>
                   <option value="3">投資信託</option>
                   <option value="4">ETF</option>
-                  <option value="5">債券</option>
+                  <option value="5">その他</option>
                 </select>
                 <label>対象資産</label>
               </div>
@@ -141,33 +141,33 @@ export default {
       assets: [
         {
           type: 1,
-          yield: '1',
-          amount: '10000',
+          yield: '0.001',
+          amount: '100000',
         },
         {
           type: 2,
-          yield: '1',
-          amount: '10000',
+          yield: '3',
+          amount: '100000',
         },
         {
           type: 3,
-          yield: '1',
-          amount: '10000',
+          yield: '3.5',
+          amount: '100000',
         },
         {
           type: 4,
-          yield: '1',
-          amount: '10000',
+          yield: '5',
+          amount: '100000',
         },
         {
           type: 5,
-          yield: '1',
-          amount: '10000',
+          yield: '4',
+          amount: '100000',
         },
         {
           type: 6,
           yield: '1',
-          amount: '10000',
+          amount: '100000',
         },
       ],
       chartData: '',
