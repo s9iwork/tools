@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,7 +15,12 @@
 
 Route::middleware('auth:api')->get('/user', 'UserController@getUser');
 
-Route::namespace('Ddg')->group(function(){
-	Route::get('ddg/initial_data', 'DataGenerateController@getInitialData');
-	Route::get('ddg/create', 'DataGenerateController@create');
+Route::namespace('Ddg')->group(function () {
+    Route::get('ddg/initial_data', 'DataGenerateController@getInitialData');
+    // TODO postメソッドにする
+    Route::get('ddg/create', 'DataGenerateController@create');
+});
+
+Route::namespace('Ams')->group(function () {
+    Route::post('ams/calc', 'AmsController@calc');
 });

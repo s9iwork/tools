@@ -1,6 +1,6 @@
 <template>
   <div class="pageContainer">
-    <Header :tool-name="'ダミーデータ作る君'" :tool-path="'/ddg'" :is-top-page="false"/>
+    <Header :tool-name="'ダミーデータジェネレーター'" :tool-path="'/ddg'" :is-top-page="false"/>
     <main class="container content">
       <div class="initialLoader" v-if="!isInitialized">
         <Loader/>
@@ -84,9 +84,9 @@
 <script>
 import axios from 'axios';
 import M from 'materialize-css';
-import Loader from '../../components/Loader';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+import Loader from '../components/Loader';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default {
   components: { Loader, Header, Footer },
