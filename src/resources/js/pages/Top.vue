@@ -19,6 +19,22 @@
             </div>
           </div>
         </div>
+        <div class="col s12 m6">
+          <div class="card-wrapper">
+            <div class="card">
+              <div class="card-image">
+                <img src="/img/ams/main.svg" alt="資産運用シミュレーター">
+                <span class="card-title toolTitle">資産運用シミュレーター</span>
+              </div>
+              <div class="card-content">
+                <p>毎年の投資額と利回りを元に20年運用した場合の資産額を計算するツールです。</p>
+              </div>
+              <div class="card-action">
+                <router-link to="/ams">View</router-link>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
     <Footer/>

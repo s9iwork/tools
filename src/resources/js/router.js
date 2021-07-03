@@ -32,7 +32,7 @@ const routes = [
     meta: {
       title: '資産運用シミュレーター｜Webツール',
       description: '毎年の投資額と利回りを元に20年運用した場合の資産額を計算するツールです',
-      favicon: './img/ddg/favicon.png', // TODO
+      favicon: './img/ams/favicon.png',
     },
   },
 ];
