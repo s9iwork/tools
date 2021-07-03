@@ -27,7 +27,7 @@
             <div class="row">
               <div class="input-field col s12">
                 <input type="number" v-model="yieldYear">
-                <label>利回り</label>
+                <label>利回り(%)</label>
               </div>
             </div>
             <div class="row">
