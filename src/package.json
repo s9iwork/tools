@@ -38,6 +38,7 @@
 		"materialize-css": "^1.0.0-rc.2",
 		"voca": "^1.4.0",
 		"vue-chartjs": "^3.5.1",
+		"vue-gtag": "^1.16.1",
 		"webpack": "^5.36.2"
 	}
 }
