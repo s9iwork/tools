@@ -1,7 +1,7 @@
 import Vue from 'vue';
+import VueGtag from 'vue-gtag';
 import router from './router';
 import App from './App.vue';
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -27,6 +27,15 @@ require('./common');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
+// アナリティクス設定
+if (process.env.MIX_APP_ENV === 'production') {
+  Vue.use(VueGtag, {
+    config: {
+      id: process.env.MIX_GA_TAG_ID,
+    },
+  });
+}
 
 new Vue({
   el: '#app',
