@@ -69,4 +69,11 @@ export default {
   display: flex;
   justify-content: center;
 }
+
+@media only screen and (max-width: 600px) {
+  .toolTitle {
+    font-size: 1.1rem !important;
+  }
+}
+
 </style>

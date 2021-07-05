@@ -75,4 +75,10 @@ h1 {
 h1, .toolName, .appName {
   font-size: 2rem;
 }
+
+@media only screen and (max-width: 600px) {
+  h1, .toolName, .appName {
+    font-size: 1.1rem;
+  }
+}
 </style>
