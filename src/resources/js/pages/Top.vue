@@ -68,5 +68,13 @@ export default {
   padding: 2rem;
   display: flex;
   justify-content: center;
+  max-width: 400px;
 }
+
+@media only screen and (max-width: 600px) {
+  .toolTitle {
+    font-size: 1.1rem !important;
+  }
+}
+
 </style>
