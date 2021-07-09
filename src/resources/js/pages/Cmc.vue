@@ -15,14 +15,14 @@
                 <label for="text">カラム一覧</label>
               </div>
             </div>
-            <div class="row">
+            <div class="row" v-for="column in this.columnList" :key="column">
               <div class="input-field col s6">
-                <input type="text" v-model="columnName">
-                <label>カラム名</label>
+                <input type="text" :value="column" disabled>
+                <label class="active">カラム名</label>
               </div>
               <div class="input-field col s6">
-                <input type="text" v-model="columnType">
-                <label>型</label>
+                <input type="text" value="int">
+                <label class="active">型</label>
               </div>
             </div>
           </form>
@@ -50,10 +50,21 @@ export default {
   data() {
     return {
       text: '',
-      columns: '',
+      columnList: [],
     };
   },
-
+  watch: {
+    text(value) {
+      this.columnList = [];
+      const list = value.split('\n');
+      list.forEach((val) => {
+        if (val === '') {
+          return;
+        }
+        this.columnList.push(val);
+      });
+    },
+  },
 };
 </script>
 
