@@ -8,24 +8,18 @@
       <div class="row formContainer">
         <div class="col s12">
           <h2>フォーム</h2>
-          <form>
-            <div class="row">
-              <div class="input-field col s12">
-                <textarea id="text" class="materialize-textarea" v-model="text"></textarea>
-                <label for="text">カラム一覧</label>
-              </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="text" class="materialize-textarea" v-model="text"></textarea>
+              <label for="text" class="active">カラム一覧</label>
             </div>
-            <div class="row" v-for="column in this.columnList" :key="column">
-              <div class="input-field col s6">
-                <input type="text" :value="column" disabled>
-                <label class="active">カラム名</label>
-              </div>
-              <div class="input-field col s6">
-                <input type="text" value="int">
-                <label class="active">型</label>
-              </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="result" class="materialize-textarea active" v-model="result"></textarea>
+              <label for="result" class="active">結果</label>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </main>
@@ -34,6 +28,7 @@
 </template>
 
 <script>
+import M from 'materialize-css';
 import PageContainer from '../components/PageContainer';
 import ToolDescription from '../components/ToolDescription';
 import Header from '../components/Header';
@@ -50,19 +45,25 @@ export default {
   data() {
     return {
       text: '',
-      columnList: [],
+      result: '',
     };
   },
   watch: {
     text(value) {
-      this.columnList = [];
+      this.result = 'type xxx struct {\n';
       const list = value.split('\n');
       list.forEach((val) => {
         if (val === '') {
           return;
         }
-        this.columnList.push(val);
+        const splited = val.split(',');
+        if (splited.length !== 3) {
+          return;
+        }
+        this.result += `    ${splited[0]} ${splited[1]} // ${splited[2]}\n`;
       });
+      this.result += '}\n';
+      M.textareaAutoResize(document.getElementById('result'));
     },
   },
 };
@@ -82,5 +83,9 @@ h2 {
 
 .formContainer {
   margin-top: 2rem;
+}
+
+.materialize-textarea {
+  height: 6rem;
 }
 </style>
