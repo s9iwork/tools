@@ -41,9 +41,8 @@ const routes = [
     component: Cmc,
     meta: {
       title: 'カラムモデルコンバーター｜Webツール',
-      // TODO
-      description: 'カラムモデルコンバーター',
-      favicon: './img/ams/favicon.png',
+      description: '入力されたカラム名、型、コメントからGoの構造体を作成します。カンマ区切りで指定してください。',
+      favicon: './img/cmc/favicon.png',
     },
   },
 ];

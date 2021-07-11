@@ -44,7 +44,7 @@
           <div class="card-wrapper">
             <div class="card">
               <div class="card-image">
-                <img src="/img/ams/main.svg" alt="カラムモデルコンバーター">
+                <img src="/img/cmc/main.svg" alt="カラムモデルコンバーター">
                 <span class="card-title toolTitle">カラムモデルコンバーター</span>
               </div>
               <div class="card-content">

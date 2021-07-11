@@ -2,8 +2,7 @@
   <PageContainer>
     <Header slot="header" :tool-name="'カラムモデルコンバーター'" :tool-path="'/cmc'" :is-top-page="false"/>
     <main slot="main" class="container content">
-      <!-- TODO -->
-      <ToolDescription description="カラムモデルコンバーター"/>
+      <ToolDescription description="入力されたカラム名、型、コメントからGoの構造体を作成します。カンマ区切りで指定してください。"/>
       <!-- フォーム -->
       <div class="row formContainer">
         <div class="col s12">
