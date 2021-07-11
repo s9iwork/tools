@@ -16,7 +16,8 @@
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <textarea id="result" class="materialize-textarea active" v-model="result"></textarea>
+              <textarea id="result" class="materialize-textarea active" v-model="result"
+                        @click="copy(result)"></textarea>
               <label for="result" class="active">結果</label>
             </div>
           </div>
@@ -103,6 +104,30 @@ export default {
       });
 
       return fieldName;
+    },
+    copy(copyString) {
+      if (copyString.length === 0) {
+        return;
+      }
+
+      // クリップボードにコピー
+      const temp = document.createElement('div');
+      temp.appendChild(document.createElement('pre')).textContent = copyString;
+
+      // 画面外に固定
+      const { style } = temp;
+      style.position = 'fixed';
+      style.left = '-100%';
+      document.body.appendChild(temp);
+      document.getSelection().selectAllChildren(temp);
+
+      const result = document.execCommand('copy');
+      document.body.removeChild(temp);
+      if (result) {
+        M.toast({ html: 'コピーしました' });
+      } else {
+        M.toast({ html: 'コピーに失敗しました。リロードしてお試しください' });
+      }
     },
   },
 };
