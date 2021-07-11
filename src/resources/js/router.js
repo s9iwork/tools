@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 import Top from './pages/Top';
 import Ddg from './pages/Ddg';
 import Ams from './pages/Ams';
+import Cmc from './pages/Cmc';
 
 Vue.use(VueRouter);
 
@@ -33,6 +34,15 @@ const routes = [
       title: '資産運用シミュレーター｜Webツール',
       description: '毎年の投資額と利回りを元に20年運用した場合の資産額を計算するツールです。',
       favicon: './img/ams/favicon.png',
+    },
+  },
+  {
+    path: '/cmc',
+    component: Cmc,
+    meta: {
+      title: 'カラムモデルコンバーター｜Webツール',
+      description: '入力されたカラム名、型、コメントからGoの構造体を作成します。カンマ区切りで指定してください。',
+      favicon: './img/cmc/favicon.png',
     },
   },
 ];

@@ -22,7 +22,7 @@
     </nav>
     <ul class="sidenav" id="mobile-demo">
       <li>
-        <a href="" v-if="!isTopPage" v-on:click.prevent="toTop">ツール一覧</a>
+        <a href="#" v-if="!isTopPage" v-on:click.prevent="toTop">ツール一覧</a>
       </li>
       <li><a href="https://shinjiezumi.work/contact">お問い合わせ</a></li>
     </ul>

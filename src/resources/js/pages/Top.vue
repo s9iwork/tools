@@ -3,6 +3,7 @@
     <Header :is-top-page="true"/>
     <main class="container content">
       <div class="row">
+        <!-- ダミーデータジェネレーター -->
         <div class="col s12 m6">
           <div class="card-wrapper">
             <div class="card">
@@ -19,6 +20,7 @@
             </div>
           </div>
         </div>
+        <!-- 資産運用シミュレーター-->
         <div class="col s12 m6">
           <div class="card-wrapper">
             <div class="card">
@@ -31,6 +33,25 @@
               </div>
               <div class="card-action">
                 <router-link to="/ams">View</router-link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- TODO cmc-->
+        <div class="col s12 m6">
+          <div class="card-wrapper">
+            <div class="card">
+              <div class="card-image">
+                <img src="/img/cmc/main.svg" alt="カラムモデルコンバーター">
+                <span class="card-title toolTitle">カラムモデルコンバーター</span>
+              </div>
+              <div class="card-content">
+                <p>カラムモデルコンバーター。</p>
+              </div>
+              <div class="card-action">
+                <router-link to="/cmc">View</router-link>
               </div>
             </div>
           </div>
@@ -66,7 +87,6 @@ export default {
 
 .card-wrapper {
   padding: 2rem;
-  display: flex;
   justify-content: center;
   max-width: 400px;
 }
