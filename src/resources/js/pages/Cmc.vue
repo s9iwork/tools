@@ -34,6 +34,11 @@ import ToolDescription from '../components/ToolDescription';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
+// 略語一覧(大文字にする単語)
+const abbreviationList = [
+  'id',
+];
+
 export default {
   name: 'Cmc',
   components: {
@@ -50,8 +55,11 @@ export default {
   },
   watch: {
     text(value) {
-      this.result = 'type xxx struct {\n';
+      let newValue = '// Xxx .\n';
+      newValue += 'type xxx struct {\n';
+
       const list = value.split('\n');
+      // １行ずつ処理
       list.forEach((val) => {
         if (val === '') {
           return;
@@ -60,10 +68,41 @@ export default {
         if (splited.length !== 3) {
           return;
         }
-        this.result += `    ${splited[0]} ${splited[1]} // ${splited[2]}\n`;
+
+        const columnName = splited[0];
+        newValue += `    ${this.convertFieldName(columnName)} ${splited[1]} \`gorm:"column:${columnName}" json:"${columnName}"\`  // ${splited[2]}\n`;
       });
-      this.result += '}\n';
+      newValue += '}\n';
+
+      this.result = newValue;
+
+      // リサイズ
       M.textareaAutoResize(document.getElementById('result'));
+    },
+  },
+  methods: {
+    // カラム名を構造体のフィールド名に変換する
+    convertFieldName(columnName) {
+      let fieldName = '';
+
+      // アンダースコアで分割
+      columnName.split('_').forEach((val) => {
+        if (abbreviationList.includes(val)) {
+          // 省略ワードであれば大文字にする
+          fieldName += val.toUpperCase();
+        } else {
+          // キャメルケースにする
+          val.split('').forEach((letter, i) => {
+            if (i === 0) {
+              fieldName += letter.toUpperCase();
+            } else {
+              fieldName += letter;
+            }
+          });
+        }
+      });
+
+      return fieldName;
     },
   },
 };
