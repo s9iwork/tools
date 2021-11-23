@@ -102,7 +102,7 @@ import PageContainer from '../components/PageContainer';
 import ToolDescription from '../components/ToolDescription';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import {getRequiredErrorMessage} from '../errors/general';
+import { getRequiredErrorMessage } from '../errors/general';
 import Error from '../components/Error';
 import Loader from '../components/Loader';
 import LineChart from '../components/chart/LineChart';
@@ -122,7 +122,7 @@ export default {
   },
   mounted() {
     const elems = document.querySelectorAll('select');
-    M.FormSelect.init(elems, {});
+    M.FormSelect.init(elems, {}, {});
   },
   data() {
     return {
