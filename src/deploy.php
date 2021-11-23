@@ -31,9 +31,9 @@ task('build', function () {
 
 // サブディレクトリでコマンドを実行するようにする
 task('change_cwd', function () {
-	$subdir = get('release_path') . DIRECTORY_SEPARATOR . 'src';
-	set('release_path', $subdir);
-	run('cd {{release_path}}');
+    $subdir = get('release_path') . DIRECTORY_SEPARATOR . 'src';
+    set('release_path', $subdir);
+    run('cd {{release_path}}');
 });
 
 after('deploy:update_code', 'change_cwd');
@@ -49,8 +49,8 @@ task('npm:run', function (): void {
 });
 
 task('php:run', function (): void {
-	run('cd {{release_path}} && composer install');
-	run('cd {{release_path}} && composer dump-autoload');
+    run('cd {{release_path}} && composer install');
+    run('cd {{release_path}} && composer dump-autoload');
 });
 
 after('deploy:shared', 'npm:run'); // deploy:sharedの後にTaskを実行
@@ -62,4 +62,3 @@ after('deploy:failed', 'deploy:unlock');
 // Migrate database before symlink new release.
 
 before('deploy:symlink', 'artisan:migrate');
-
