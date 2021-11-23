@@ -14,7 +14,7 @@
             <div class="row">
               <div class="input-field col s12">
                 <select v-model="type">
-                  <option selected>選択してください</option>
+                  <option value="0" selected>選択してください</option>
                   <option value="1">銀行</option>
                   <option value="2">株</option>
                   <option value="3">投資信託</option>
@@ -122,7 +122,7 @@ export default {
   },
   mounted() {
     const elems = document.querySelectorAll('select');
-    M.FormSelect.init(elems, {});
+    M.FormSelect.init(elems, {}, {});
   },
   data() {
     return {
@@ -134,38 +134,38 @@ export default {
         5: 'J-REIT',
         6: 'その他',
       },
-      type: '',
+      type: 0,
       yieldYear: '',
       amount: '',
       errors: [],
       assets: [
         {
-          type: '1',
+          type: 1,
           yield: '0.001',
           amount: '100000',
         },
         {
-          type: '2',
+          type: 2,
           yield: '3',
           amount: '100000',
         },
         {
-          type: '3',
+          type: 3,
           yield: '3.5',
           amount: '100000',
         },
         {
-          type: '4',
+          type: 4,
           yield: '5',
           amount: '100000',
         },
         {
-          type: '5',
+          type: 5,
           yield: '4',
           amount: '100000',
         },
         {
-          type: '6',
+          type: 6,
           yield: '1',
           amount: '100000',
         },
@@ -188,7 +188,7 @@ export default {
     validate() {
       this.errors = [];
 
-      if (this.type === '') {
+      if (this.type === 0) {
         this.errors.push(getRequiredErrorMessage('対象資産'));
       }
       if (this.yieldYear === '') {
