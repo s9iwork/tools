@@ -4,7 +4,7 @@ services:
   web:
     build: docker/nginx
     ports:
-      - 80:80
+      - "80:80"
     depends_on:
       - app
     volumes:
@@ -17,8 +17,8 @@ services:
       context: .
       dockerfile: docker/php/Dockerfile
     ports:
-      - 3000:3000
-      - 3001:3001
+      - "3000:3000"
+      - "3001:3001"
     depends_on:
       - db
     volumes:
@@ -30,8 +30,9 @@ services:
       TZ: Asia/Tokyo
   db:
     build: docker/mysql
+    platform: linux/amd64
     ports:
-      - 3306:3306
+      - "3306:3306"
     volumes:
       - ./docker/mysql/data:/var/lib/mysql
     environment:
